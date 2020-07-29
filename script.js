@@ -20,11 +20,14 @@ const functionalities = {
     let i = 0;
     let word = '';
     while(i < textToManipulate.length) {
-      word += textToManipulate[i];
+      word += textToManipulate[i].replace(' ','');
       if (textToManipulate[i] === ' ' || i === textToManipulate.length-1) {
         const spanElement = document.createElement('span');
         spanElement.innerHTML = word;
         letterElement.appendChild(spanElement);
+        if (i !== textToManipulate.length-1) {
+          letterElement.innerHTML = letterElement.innerHTML.concat(' ');
+        }
         word = '';
       }
       i += 1;
