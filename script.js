@@ -3,7 +3,6 @@ const functionalities = {
   verifyAndEdit: function verifyAndEdit() {
     const inputTextElement = document.querySelector('#carta-texto');
     const textToManipulate = inputTextElement.value;
-    let permissionToContinue = 1;
     let occurrenceOfWhiteSpaceInARow = 0;
     while (textToManipulate[occurrenceOfWhiteSpaceInARow] === ' ') {
       occurrenceOfWhiteSpaceInARow +=1 ;
@@ -11,7 +10,7 @@ const functionalities = {
     if (occurrenceOfWhiteSpaceInARow !== textToManipulate.length && textToManipulate.value !== '') {
     functionalities.editLetterStyle(textToManipulate);
     } else {
-      document.querySelector('#carta-gerada').innerHTML = 'Por favor, digite o conteúdo da carta.';
+      document.querySelector('#carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.';
     }
   },
   editLetterStyle: function editStyle(textToManipulate) {
@@ -23,6 +22,7 @@ const functionalities = {
       word += textToManipulate[i].replace(' ','');
       if (textToManipulate[i] === ' ' || i === textToManipulate.length-1) {
         const spanElement = document.createElement('span');
+        spanElement.className = functionalities.generateRandomStyle();
         spanElement.innerHTML = word;
         letterElement.appendChild(spanElement);
         if (i !== textToManipulate.length-1) {
@@ -33,6 +33,26 @@ const functionalities = {
       i += 1;
     }
   },
+  generateRandomStyle: function generateRandomStyle () {
+    let classes = [
+      ['newspaper', 'magazine1', 'magazine2'], // Style Group
+      ['medium', 'big', 'reallybig'], // Size Group
+      ['rotateleft', 'rotateright'], // Rotation Group
+      ['skewleft', 'skewright'], // Inclination Group
+    ];
+    const numberOfClasses = Math.round(Math.random() * (4 - 2) + 2); // It can be 2, 3 or 4
+    let classString = '';
+    for (let i = 0; i < numberOfClasses; i += 1) {
+      const randomGroup = Math.round(Math.random() * (4-i - 1) + 1);
+      const classInsideGroup = Math.round(Math.random() * (classes[randomGroup-1].length-1) +1);
+      classString = classString.concat(classes[randomGroup-1][classInsideGroup-1]);
+      if (i !== numberOfClasses-1) {
+        classString = classString.concat(' ');
+      }
+      classes.splice(randomGroup-1, 1); // Avoid error selecting a same group twice or more - delete group row
+    }
+    return classString;
+  }
 };
 
 window.onload = function () {
