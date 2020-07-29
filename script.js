@@ -1,10 +1,22 @@
 
 const functionalities = {
-  editLetterStyle: function editStyle() {
+  verifyAndEdit: function verifyAndEdit() {
     const inputTextElement = document.querySelector('#carta-texto');
+    const textToManipulate = inputTextElement.value;
+    let permissionToContinue = 1;
+    let occurrenceOfWhiteSpaceInARow = 0;
+    while (textToManipulate[occurrenceOfWhiteSpaceInARow] === ' ') {
+      occurrenceOfWhiteSpaceInARow +=1 ;
+    }
+    if (occurrenceOfWhiteSpaceInARow !== textToManipulate.length && textToManipulate.value !== '') {
+    functionalities.editLetterStyle(textToManipulate);
+    } else {
+      alert('Por favor, digite o conteúdo da carta.');
+    }
+  },
+  editLetterStyle: function editStyle(textToManipulate) {
     const letterElement = document.querySelector('#carta-gerada');
-    const textToManipulate = inputTextElement.value
-    console.log(textToManipulate.length)
+    letterElement.innerHTML = '';
     let i = 0;
     let word = '';
     while(i < textToManipulate.length) {
@@ -17,7 +29,7 @@ const functionalities = {
       }
       i += 1;
     }
-  }
+  },
 };
 
 window.onload = function () {
@@ -25,5 +37,5 @@ window.onload = function () {
   const buttonCreateElement = document.querySelector('#criar-carta');
 
   // Events
-buttonCreateElement.addEventListener('click', functionalities.editLetterStyle);
+buttonCreateElement.addEventListener('click', functionalities.verifyAndEdit);
 };
