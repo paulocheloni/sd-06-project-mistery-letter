@@ -30,9 +30,6 @@ const functionalities = {
       i += 1;
     }
   },
-  generateRandomStyle: function generateRandomStyle () {
-    const numberOfClasses = Math.random() * (4 - 2)
-  }
 };
 
 window.onload = function () {
