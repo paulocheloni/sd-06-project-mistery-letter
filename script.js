@@ -11,7 +11,7 @@ const functionalities = {
     if (occurrenceOfWhiteSpaceInARow !== textToManipulate.length && textToManipulate.value !== '') {
     functionalities.editLetterStyle(textToManipulate);
     } else {
-      alert('Por favor, digite o conteúdo da carta.');
+      document.querySelector('#carta-gerada').innerHTML = 'Por favor, digite o conteúdo da carta.';
     }
   },
   editLetterStyle: function editStyle(textToManipulate) {
@@ -30,6 +30,9 @@ const functionalities = {
       i += 1;
     }
   },
+  generateRandomStyle: function generateRandomStyle () {
+    const numberOfClasses = Math.random() * (4 - 2)
+  }
 };
 
 window.onload = function () {
