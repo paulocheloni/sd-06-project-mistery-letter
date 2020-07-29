@@ -10,7 +10,7 @@ const functionalities = {
     if (occurrenceOfWhiteSpaceInARow !== textToManipulate.length && textToManipulate.value !== '') {
     functionalities.editLetterStyle(textToManipulate);
     } else {
-      document.querySelector('#carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.';
+      document.querySelector('#carta-gerada').innerText = 'Por favor, digite o conteúdo da carta!';
     }
   },
   editLetterStyle: function editStyle(textToManipulate) {
@@ -18,6 +18,7 @@ const functionalities = {
     letterElement.innerHTML = '';
     let i = 0;
     let word = '';
+    let wordCounter = 0;
     while(i < textToManipulate.length) {
       word += textToManipulate[i].replace(' ','');
       if (textToManipulate[i] === ' ' || i === textToManipulate.length-1) {
@@ -29,9 +30,12 @@ const functionalities = {
           letterElement.innerHTML = letterElement.innerHTML.concat(' ');
         }
         word = '';
+        wordCounter += 1;
       }
       i += 1;
     }
+    const wordCounterElement = document.querySelector('#carta-contador');
+    wordCounterElement.innerHTML = (('esta é uma carta com ').concat(wordCounter)).concat(' palavras');
   },
   generateRandomStyle: function generateRandomStyle () {
     let classes = [
