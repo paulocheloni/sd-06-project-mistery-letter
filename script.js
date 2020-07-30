@@ -3,23 +3,23 @@ const btnGenerate = document.getElementById('criar-carta');
 const paragraph = document.getElementById('carta-gerada');
 const cartaContador = document.getElementById('carta-contador');
 
-// const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
-// const sizeGroup = ['medium', 'big', 'reallybig'];
+const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
+const sizeGroup = ['medium', 'big', 'reallybig'];
 // const rotateGroup = ['rotateleft', 'rotateright'];
-// const inclinationGroup = ['skewleft', 'skewright'];
-// const arrayClass = [styleGroup, sizeGroup, rotateGroup, inclinationGroup];
-const array = ['newspaper', 'magazine1', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright'];
+const inclinationGroup = ['rotateleft', 'rotateright', 'skewleft', 'skewright'];
+const arrayClass = [styleGroup, sizeGroup, inclinationGroup];
+// const array = ['newspaper', 'magazine1', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright'];
 
 function takeClass() {
-  const classes = array;
-  // let stringClasses = '';
-  // for (let i = 0; i < 4; i += 1) {
-  //   const random = Math.floor(Math.random() * classes[i].length);
-  //   stringClasses += ` ${classes[i][random]}`;
-  // }
-  // return stringClasses;
-  const random = Math.floor(Math.random() * 10);
-  return classes[random];
+  const classes = arrayClass;
+  let stringClasses = '';
+  for (let i = 0; i < 3; i += 1) {
+    const random = Math.floor(Math.random() * classes[i].length);
+    stringClasses += ` ${classes[i][random]}`;
+  }
+  return stringClasses;
+  // const random = Math.floor(Math.random() * 10);
+  // return classes[random];
 }
 
 btnGenerate.addEventListener('click', () => {
