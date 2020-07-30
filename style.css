@@ -6,6 +6,7 @@ body {
 .letter-input {
   background-color: white;
   border: solid white;
+  border-radius: 5px;
   color: coral;
   font-family: sans-serif;
   font-size: 20px;
@@ -41,7 +42,7 @@ body {
 
 .newspaper {
   background-color: antiquewhite;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Times New Roman, Times, serif;
   font-weight: bold;
 }
 
