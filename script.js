@@ -31,6 +31,7 @@ const functionalities = {
         }
         word = '';
         wordCounter += 1;
+        spanElement.addEventListener('click' , functionalities.changeClass);
       }
       i += 1;
     }
@@ -57,7 +58,10 @@ const functionalities = {
       classes.splice(randomGroup-1, 1); // Avoid error selecting a same group twice or more - delete group row
     }
     return classString;
-  }
+  },
+  changeClass: function changeClass() {
+    event.target.className = functionalities.generateRandomStyle();
+  },
 };
 
 window.onload = function () {
