@@ -79,5 +79,3 @@ createLetterButton.addEventListener('click', function () {
     // console.log(letterGenerated);
   }
 });
-
-
