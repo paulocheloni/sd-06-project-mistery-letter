@@ -25,13 +25,13 @@ const functionalities = {
         const spanElement = document.createElement('span');
         spanElement.className = functionalities.generateRandomStyle();
         spanElement.innerHTML = word;
-        letterElement.appendChild(spanElement);
         if (i !== textToManipulate.length - 1) {
           letterElement.innerHTML = letterElement.innerHTML.concat(' ');
         }
         word = '';
         wordCounter += 1;
         spanElement.addEventListener('click', functionalities.changeClass);
+        letterElement.appendChild(spanElement);
       }
       i += 1;
     }
@@ -49,8 +49,8 @@ const functionalities = {
     let classString = '';
     for (let i = 0; i < numberOfClasses; i += 1) {
       const randomGroup = Math.round((Math.random() * (4 - i - 1)) + 1);
-      const classInsideGroup = Math.round((Math.random() * (classes[randomGroup - 1].length - 1)) +1);
-      classString = classString.concat(classes[randomGroup - 1][classInsideGroup - 1]);
+      const classInGroup = Math.round((Math.random() * (classes[randomGroup - 1].length - 1)) + 1);
+      classString = classString.concat(classes[randomGroup - 1][classInGroup - 1]);
       if (i !== numberOfClasses - 1) {
         classString = classString.concat(' ');
       }
