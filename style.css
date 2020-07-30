@@ -57,3 +57,7 @@ input {
 .skewright {
   transform: skewX(-10deg);
 }
+
+p {
+  margin: 15px;
+}
