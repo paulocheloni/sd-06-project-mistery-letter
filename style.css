@@ -1,0 +1,28 @@
+body {
+  background-color: coral;
+  text-align: center;
+}
+
+.letter-input {
+  border: 5px solid tomato;
+  color: tomato;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin: 100px 5px;
+  padding: 10px 15px;
+  width: 50%;
+}
+
+.letter-input:focus {
+  outline: none;
+}
+
+.create-letter-button {
+  border: 5px solid tomato;
+  color: tomato;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin: 100px 5px;
+  outline: none;
+  padding: 10px 15px;
+}
