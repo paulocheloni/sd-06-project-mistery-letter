@@ -1,3 +1,4 @@
+const contador = document.querySelector('#carta-contador');
 const letter = document.querySelector('#carta-gerada');
 const letterText = document.querySelector('#carta-texto');
 const button = document.querySelector('#criar-carta');
@@ -15,5 +16,5 @@ button.addEventListener('click', function () {
       letter.appendChild(span);
     }
   }
-  console.log(arrayStrings.length);
+  contador.innerHTML = arrayStrings.length;
 });
