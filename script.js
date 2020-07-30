@@ -25,24 +25,19 @@ const functionalities = {
         letterElement.innerHTML += '&nbsp;';
         word = '';
       } else if ((text[i] === ' ' || i === text.length - 1) && word !== '' && word !== ' ') {
-        let spanElement = document.createElement('span');
+        const spanElement = document.createElement('span');
         spanElement.className = functionalities.generateRandomStyle();
-        spanElement.id = 'oii' + wordCounter;
-        word[word.length - 1] = '';
         letterElement.innerHTML += '&nbsp;';
-        spanElement.innerHTML = word;
+        spanElement.innerHTML = word.replace(' ', '');
         letterElement.appendChild(spanElement);
         word = '';
         wordCounter += 1;
-      } 
+      }
       i += 1;
     }
     const wordCounterElement = document.querySelector('#carta-contador');
     wordCounterElement.innerHTML = wordCounter;
-    const allSpan = document.querySelectorAll('span');
-    for (let i = 0; i < allSpan.length; i += 1) {
-      allSpan[i].addEventListener('click', functionalities.changeClass);
-    }
+    functionalities.addEventToWords();
   },
   generateRandomStyle: function generateRandomStyle() {
     const classes = [
@@ -66,6 +61,12 @@ const functionalities = {
   },
   changeClass: function changeClass() {
     event.target.className = functionalities.generateRandomStyle();
+  },
+  addEventToWords: function addEventToWords() {
+    const allSpan = document.querySelectorAll('span');
+    for (let i = 0; i < allSpan.length; i += 1) {
+      allSpan[i].addEventListener('click', functionalities.changeClass);
+    }
   },
 };
 
