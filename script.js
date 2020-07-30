@@ -10,9 +10,8 @@ function randomStyleGroup() {
     return 'newspaper';
   } else if (class1 === randomClass) {
     return 'magazine1';
-  } else {
-    return 'magazine2';
   }
+    return 'magazine2';
 }
 
 function randomSizeGroup() {
@@ -23,9 +22,8 @@ function randomSizeGroup() {
     return 'medium';
   } else if (class1 === randomClass) {
     return 'big';
-  } else {
-    return 'reallybig';
   }
+  return 'reallybig';
 }
 
 function randomRotationGroup() {
@@ -33,9 +31,8 @@ function randomRotationGroup() {
   const randomClass = Math.round(Math.random() * 2);
   if (class0 === randomClass) {
     return 'rotateleft';
-  } else {
-    return 'rotateright';
   }
+  return 'rotateright';
 }
 
 function randomSkewGroup() {
@@ -43,9 +40,8 @@ function randomSkewGroup() {
   const randomClass = Math.round(Math.random() * 2);
   if (class0 === randomClass) {
     return 'skewleft';
-  } else {
-    return 'skewright';
-  }
+  } 
+  return 'skewright';
 }
 
 createLetterButton.addEventListener('click', function () {
@@ -69,5 +65,6 @@ createLetterButton.addEventListener('click', function () {
     }
     letterGenerated.appendChild(spanTag);
   }
-  console.log(letterGenerated);
+  
+  // console.log(letterGenerated);
 });
