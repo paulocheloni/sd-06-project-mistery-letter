@@ -35,7 +35,8 @@ const functionalities = {
       i += 1;
     }
     const wordCounterElement = document.querySelector('#carta-contador');
-    wordCounterElement.innerHTML = (('esta é uma carta com ').concat(wordCounter)).concat(' palavras');
+    //wordCounterElement.innerHTML = (('esta é uma carta com ').concat(wordCounter)).concat(' palavras');
+    wordCounterElement.innerHTML = wordCounter;
   },
   generateRandomStyle: function generateRandomStyle () {
     let classes = [
