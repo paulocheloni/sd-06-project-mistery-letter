@@ -1,6 +1,7 @@
 const createLetterButton = document.getElementById('criar-carta');
 const inputText = document.getElementById('carta-texto');
 const letterGenerated = document.getElementById('carta-gerada');
+let letterCounter = document.getElementById('carta-contador');
 
 function randomStyleGroup() {
   const class0 = 0;
@@ -11,7 +12,7 @@ function randomStyleGroup() {
   } else if (class1 === randomClass) {
     return 'magazine1';
   }
-    return 'magazine2';
+  return 'magazine2';
 }
 
 function randomSizeGroup() {
@@ -40,13 +41,15 @@ function randomSkewGroup() {
   const randomClass = Math.round(Math.random() * 2);
   if (class0 === randomClass) {
     return 'skewleft';
-  } 
+  }
   return 'skewright';
 }
 
 createLetterButton.addEventListener('click', function () {
   letterGenerated.innerHTML = '';
   const stringArray = inputText.value.split(' ');
+  const count = stringArray.length;
+  letterCounter.innerHTML = count;
   for (let i = 0; i < stringArray.length; i += 1) {
     const spanTag = document.createElement('span');
     const space = ' ';
@@ -65,6 +68,6 @@ createLetterButton.addEventListener('click', function () {
     }
     letterGenerated.appendChild(spanTag);
   }
-  
+
   // console.log(letterGenerated);
 });
