@@ -3,6 +3,7 @@
   font-family: 'Times New Roman';
   font-weight: bold;
 }
+
 .magazine1 {
   background-color: teal;
   color: white;
@@ -10,9 +11,14 @@
   font-weight: 900;
   text-transform: uppercase;
 }
+
 .magazine2 {
-  background-image: 'images/pink-pattern.png';
+  background-image: "images/pink-pattern.png";
   color: fuchsia;
   font-family: Verdana;
   font-weight: 900;
+}
+
+span {
+  margin: 10px;
 }
