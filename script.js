@@ -18,25 +18,21 @@ const functionalities = {
     letterElement.innerHTML = '';
     let i = 0;
     let word = '';
-    let wordCounter = 0;
     while (i < text.length) {
       word += text[i];
       if (text[i] === ' ' && word === ' ') {
         letterElement.innerHTML += '&nbsp;';
         word = '';
-      } else if ((text[i] === ' ' || i === text.length - 1) && word !== '' && word !== ' ') {
+      } else if ((text[i] === ' ' || i === text.length - 1) && word !== '') {
         const spanElement = document.createElement('span');
         spanElement.className = functionalities.generateRandomStyle();
         letterElement.innerHTML += '&nbsp;';
         spanElement.innerHTML = word.replace(' ', '');
         letterElement.appendChild(spanElement);
         word = '';
-        wordCounter += 1;
       }
       i += 1;
     }
-    const wordCounterElement = document.querySelector('#carta-contador');
-    wordCounterElement.innerHTML = wordCounter;
     functionalities.addEventToWords();
   },
   generateRandomStyle: function generateRandomStyle() {
@@ -67,6 +63,8 @@ const functionalities = {
     for (let i = 0; i < allSpan.length; i += 1) {
       allSpan[i].addEventListener('click', functionalities.changeClass);
     }
+    const wordCounterElement = document.querySelector('#carta-contador');
+    wordCounterElement.innerHTML = allSpan.length;
   },
 };
 
