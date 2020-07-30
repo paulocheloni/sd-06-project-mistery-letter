@@ -9,7 +9,6 @@ function selectNumberFeatures() {
     while (numberOfFeatures < 2) {
         numberOfFeatures = Math.floor(Math.random() * 4);
     }
-    console.log('selectNumberFeatures:', numberOfFeatures);
     return numberOfFeatures;
 }
 
@@ -23,7 +22,6 @@ function selectFeatures(param1) {
             number += 1;
         }
     }
-    console.log(selectedFeatures)
     return selectedFeatures;
 }
 
@@ -36,13 +34,27 @@ function selectFeaturesItems(param1) {
     return selectedFeaturesItems;
 }
 
-function criarCartas() {
+function creatingArrayFeatures() {
     let numberFeatures = selectNumberFeatures();
     let arraySelectedFeatures = selectFeatures(numberFeatures);
     let arraySelectedFeaturesItems = selectFeaturesItems(arraySelectedFeatures);
-    console.log(arraySelectedFeaturesItems)
+    return arraySelectedFeaturesItems;
+}
+
+function creatingCards() {
+    let arrayWords = document.getElementById('cartao-texto').value;
+    for(const item1 in arrayWords.split(' ')) {
+        styling = creatingArrayFeatures();
+        let card = document.createElement('span');
+        for (const item2 in styling) {
+            card.classList.add(styling[item2]);
+        }
+        card.innerText = arrayWords.split(' ')[item1];
+        document.getElementById('carta-gerada').insertAdjacentElement('beforeend', card);
+    }
 }
 
 window.onload = function () {
-    document.getElementById('criar-carta').addEventListener('click', criarCartas);
+    document.getElementById('criar-carta').addEventListener('click', creatingArrayFeatures);
+    document.getElementById('cartao-texto').addEventListener('change', creatingCards);
 }
