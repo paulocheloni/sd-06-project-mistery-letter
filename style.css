@@ -10,18 +10,21 @@ body {
 .input-container {
   display: flex;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 32px;
 }
 
 .carta-texto {
+  border-radius: 4px;
+  height: 24px;
   margin-right: 12px;
+  padding: 0 8px;
   width: 70%;
 }
 
 .response p {
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 60px;
 }
 
@@ -75,4 +78,8 @@ body {
 
 .skewright {
   transform: skewX(-10deg);
+}
+
+span {
+  margin: 6px;
 }

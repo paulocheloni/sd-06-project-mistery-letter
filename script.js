@@ -8,8 +8,8 @@ let words = [];
 const classes = {
   style: ['newspaper', 'magazine1', 'magazine2'],
   size: ['medium', 'big', 'reallybig'],
-  rotation: ['rotateleft', 'rotateright'],
-  skew: ['skewleft', 'skewright'],
+  rotation: ['rotateleft', 'rotateright', 'skewleft', 'skewright'],
+  // skew: ['skewleft', 'skewright'],
 };
 
 // gerar numeros de 0 a num - 1
@@ -18,9 +18,9 @@ const generateRandomNumbers = (num) => Math.floor(Math.random() * num);
 const getRandomClasses = () => {
   const styleClass = classes.style[generateRandomNumbers(3)];
   const sizeClass = classes.size[generateRandomNumbers(3)];
-  const rotationClass = classes.rotation[generateRandomNumbers(2)];
-  const skewClass = classes.skew[generateRandomNumbers(2)];
-  return [styleClass, sizeClass, rotationClass, skewClass];
+  const rotationClass = classes.rotation[generateRandomNumbers(4)];
+  // const skewClass = classes.skew[generateRandomNumbers(2)];
+  return [styleClass, sizeClass, rotationClass];
 };
 
 const setClasses = (span) => {
