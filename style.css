@@ -50,6 +50,8 @@
   transform: skewX(-10deg);
 }
 
-span {
-  margin: 4px;
+p {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
 }

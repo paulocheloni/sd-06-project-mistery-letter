@@ -52,29 +52,22 @@ function addRotation (word){
   }
 }
 
-function addIncline (word){
-  const num = Math.floor(Math.random() * 2);
-  switch (num) {
-    case 1:
-      word.classList.add('skewleft');
-      break;
-    case 0:
-      word.classList.add('skewright');
-      break;
-  }
-}
-
 function addClasses (word) {
   addStyle(word);
   addSize(word);
   addRotation(word);
-  //addIncline(word);
 }
 
 makeLetterButton.addEventListener('click', function(){
+  const removeSpan = document.querySelectorAll('span');
+  for (let i = 0 ; i < removeSpan.length ; i += 1){
+    const aux = removeSpan[i];
+    output.removeChild(aux);
+  }
+  
   const textLetter = inputTextLetter.value;
   if (textLetter.length === 0 || !textLetter.trim()){
-    output.innerHTML = 'Por favor, digite o conteúdo da carta.';
+    output.innerHTML = 'Por favor, digite o conteúdo da carta!';
   }else {
     const arrayOfWords = textLetter.split(' ');
     for (let i = 0 ; i < arrayOfWords.length ; i += 1){
@@ -83,7 +76,16 @@ makeLetterButton.addEventListener('click', function(){
       word.innerHTML = arrayOfWords[i];
       output.appendChild(word);
     }
+    const counter = document.querySelector('#carta-contador');
+    counter.innerHTML = arrayOfWords.length;
   }
+
+})
+
+output.addEventListener('click', function(event){
+  const element = event.target;
+  element.className = '';
+  addClasses(element);
 })
 
 
