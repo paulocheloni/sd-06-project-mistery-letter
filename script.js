@@ -48,7 +48,18 @@ function randomSkewGroup() {
 createLetterButton.addEventListener('click', function () {
   letterGenerated.innerHTML = '';
   letterCounter.innerHTML = '';
-  if (inputText.value === '') {
+
+  const spacesArray = inputText.value;
+  let isOnlySpaces = false;
+  for (let i = 0; i < spacesArray.length; i += 1) {
+    if (spacesArray[i] === ' ') {
+      isOnlySpaces = true;
+    } else {
+      isOnlySpaces = false;
+    }
+  }
+
+  if (inputText.value === '' || isOnlySpaces) {
     letterGenerated.innerHTML = 'por favor, digite o conteúdo da carta!';
   } else {
     const stringArray = inputText.value.split(' ');
@@ -68,3 +79,5 @@ createLetterButton.addEventListener('click', function () {
     // console.log(letterGenerated);
   }
 });
+
+
