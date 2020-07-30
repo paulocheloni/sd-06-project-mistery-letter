@@ -20,20 +20,27 @@ const functionalities = {
     let word = '';
     while (i < text.length) {
       word += text[i];
-      if (text[i] === ' ' && word === ' ') {
-        letterElement.innerHTML += '&nbsp;';
-        word = '';
-      } else if ((text[i] === ' ' || i === text.length - 1) && word !== '') {
-        const spanElement = document.createElement('span');
-        spanElement.className = functionalities.generateRandomStyle();
-        letterElement.innerHTML += '&nbsp;';
-        spanElement.innerHTML = word.replace(' ', '');
-        letterElement.appendChild(spanElement);
-        word = '';
-      }
+      word = functionalities.verifyTextToGenerateSpan(text[i], word, i, text.length);
       i += 1;
     }
     functionalities.addEventToWords();
+  },
+  verifyTextToGenerateSpan: function verifyTextToGenSpan(letter, word, position, numberOfLetters) {
+    const letterElement = document.querySelector('#carta-gerada');
+    if (letter === ' ' && word === ' ') {
+      letterElement.innerHTML += '&nbsp;';
+      word = '';
+    } else if ((letter === ' ' || position === numberOfLetters - 1) && word !== '') {
+      const spanElement = document.createElement('span');
+      spanElement.className = functionalities.generateRandomStyle();
+      letterElement.innerHTML += '&nbsp;';
+      spanElement.innerHTML = word.replace(' ', '');
+      letterElement.appendChild(spanElement);
+      word = '';
+    } else {
+      word = word;
+    }
+    return word;
   },
   generateRandomStyle: function generateRandomStyle() {
     const classes = [
