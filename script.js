@@ -11,17 +11,19 @@ const separateWordsInSpan = (arr) => {
   arr.forEach((item) => {
     const span = document.createElement('span');
     span.textContent = item;
-    span.className = 'word';
     responseParag.appendChild(span);
   });
 };
 
 const wordsCounter = (wordsArr) => {
-  const counterParag = document.createElement('p');
-  counterParag.id = 'carta-contador';
+  const counterParag = document.querySelector('#carta-contador');
   counterParag.className = 'carta-contador';
-  counterParag.textContent = `Palavras: ${wordsArr.length}`;
-  responseParag.appendChild(counterParag);
+  counterParag.textContent = `${wordsArr.length}`;
+};
+
+const eraseWordCounter = () => {
+  const counterParag = document.querySelector('#carta-contador');
+  counterParag.textContent = '';
 };
 
 const killParagChildren = () => {
@@ -32,6 +34,7 @@ const killParagChildren = () => {
 
 letterButton.addEventListener('click', () => {
   killParagChildren();
+  eraseWordCounter();
   if (letterInput.value) {
     letter = letterInput.value;
 
