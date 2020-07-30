@@ -1,7 +1,7 @@
 const createLetterButton = document.getElementById('criar-carta');
 const inputText = document.getElementById('carta-texto');
 const letterGenerated = document.getElementById('carta-gerada');
-let letterCounter = document.getElementById('carta-contador');
+const letterCounter = document.getElementById('carta-contador');
 
 function randomStyleGroup() {
   const class0 = 0;
@@ -47,27 +47,23 @@ function randomSkewGroup() {
 
 createLetterButton.addEventListener('click', function () {
   letterGenerated.innerHTML = '';
-  const stringArray = inputText.value.split(' ');
-  const count = stringArray.length;
-  letterCounter.innerHTML = count;
-  for (let i = 0; i < stringArray.length; i += 1) {
-    const spanTag = document.createElement('span');
-    const space = ' ';
-    if (i !== stringArray.length - 1) {
-      spanTag.innerHTML = stringArray[i] + space;
-      spanTag.className += randomStyleGroup();
-      spanTag.className += space + randomSizeGroup();
-      spanTag.className += space + randomRotationGroup();
-      spanTag.className += space + randomSkewGroup();
-    } else {
+  if (inputText.value === '') {
+    letterGenerated.innerHTML = 'por favor, digite o conteúdo da carta!';
+  } else {
+    const stringArray = inputText.value.split(' ');
+    const count = stringArray.length;
+    letterCounter.innerHTML = count;
+    for (let i = 0; i < stringArray.length; i += 1) {
+      const spanTag = document.createElement('span');
+      const space = ' ';
       spanTag.innerHTML = stringArray[i];
       spanTag.className += randomStyleGroup();
       spanTag.className += space + randomSizeGroup();
       spanTag.className += space + randomRotationGroup();
       spanTag.className += space + randomSkewGroup();
+      letterGenerated.appendChild(spanTag);
     }
-    letterGenerated.appendChild(spanTag);
+  
+    // console.log(letterGenerated);
   }
-
-  // console.log(letterGenerated);
 });
