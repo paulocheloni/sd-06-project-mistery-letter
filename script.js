@@ -7,7 +7,7 @@ const features = [styles, sizes, rotates, skews];
 function selectNumberFeatures() {
   let numberOfFeatures = 1;
   while (numberOfFeatures < 2) {
-    numberOfFeatures = Math.floor(Math.random() * 4);
+    numberOfFeatures = Math.floor(Math.random() * 5);
   }
   return numberOfFeatures;
 }
@@ -41,20 +41,29 @@ function creatingArrayFeatures() {
   return arraySelectedFeaturesItems;
 }
 
+function cleanText() {
+  document.getElementById('carta-gerada').innerText = '';
+}
+
 function creatingCards() {
-  const arrayWords = document.getElementById('cartao-texto').value;
-  for (let item1 = 0; item1 < arrayWords.split(' ').length; item1 += 1) {
-    const styling = creatingArrayFeatures();
-    let card = document.createElement('span');
-    for (let item2 = 0; item2 < styling.length; item2 += 1) {
-      card.classList.add(styling[item2]);
+  cleanText();
+  console.log(document.getElementById('carta-texto').value)
+  if (document.getElementById('carta-texto').value === '') {
+    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta'
+  } else {
+    const arrayWords = document.getElementById('carta-texto').value;
+    for (let item1 = 0; item1 < arrayWords.split(' ').length; item1 += 1) {
+      const styling = creatingArrayFeatures();
+      let card = document.createElement('span');
+      for (let item2 = 0; item2 < styling.length; item2 += 1) {
+        card.classList.add(styling[item2]);
+      }
+      card.innerText = arrayWords.split(' ')[item1];
+      document.getElementById('carta-gerada').insertAdjacentElement('beforeend', card);
     }
-    card.innerText = arrayWords.split(' ')[item1];
-    document.getElementById('carta-gerada').insertAdjacentElement('beforeend', card);
   }
 }
 
 window.onload = function () {
-  document.getElementById('criar-carta').addEventListener('click', creatingArrayFeatures);
-  document.getElementById('cartao-texto').addEventListener('change', creatingCards);
+  document.getElementById('criar-carta').addEventListener('click', creatingCards);
 }
