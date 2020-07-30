@@ -13,10 +13,10 @@ function selectNumberFeatures() {
 }
 
 function selectFeatures(param1) {
-  let selectedFeatures = [];
+  const selectedFeatures = [];
   let number = 0;
   while (number < param1) {
-    let pickArrayFeature = Math.floor(Math.random() * 4);
+    const pickArrayFeature = Math.floor(Math.random() * 4);
     if (!selectedFeatures.includes(pickArrayFeature)) {
       selectedFeatures.push(pickArrayFeature);
       number += 1;
@@ -26,7 +26,7 @@ function selectFeatures(param1) {
 }
 
 function selectFeaturesItems(param1) {
-  let selectedFeaturesItems = [];
+  const selectedFeaturesItems = [];
   for (let item = 0; item < param1.length; item += 1) {
     const randomNumber = Math.floor(Math.random() * features[param1[item]].length);
     selectedFeaturesItems.push(features[param1[item]][randomNumber]);
@@ -46,20 +46,18 @@ function cleanText() {
 }
 
 function countCards(param1) {
-  string = `esta é uma carta com ${param1.length} palavras`;
-  document.getElementById('carta-contador').innerText = string; 
+  document.getElementById('carta-contador').innerText = param1.length; 
 }
 
 function creatingCards() {
   cleanText();
-  console.log(document.getElementById('carta-texto').value)
   if (document.getElementById('carta-texto').value.trim() === '') {
-    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.'
+    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta!';
   } else {
     const arrayWords = document.getElementById('carta-texto').value.trim();
     for (let item1 = 0; item1 < arrayWords.split(' ').length; item1 += 1) {
       const styling = creatingArrayFeatures();
-      let card = document.createElement('span');
+      const card = document.createElement('span');
       for (let item2 = 0; item2 < styling.length; item2 += 1) {
         card.classList.add(styling[item2]);
       }
@@ -96,4 +94,4 @@ function addCardStyle(event) {
 window.onload = function () {
   document.getElementById('criar-carta').addEventListener('click', creatingCards);
   document.getElementById('carta-gerada').addEventListener('click', addCardStyle);
-}
+};
