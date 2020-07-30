@@ -8,6 +8,7 @@ const sizeGroup = ['medium', 'big', 'reallybig'];
 const rotateGroup = ['rotateleft', 'rotateright'];
 const inclinationGroup = ['skewleft', 'skewright'];
 const arrayClass = [styleGroup, sizeGroup, rotateGroup, inclinationGroup];
+const array = ['newspaper', 'magazine1', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright'];
 
 function takeClass() {
   const classes = arrayClass;
@@ -26,13 +27,16 @@ btnGenerate.addEventListener('click', () => {
   if (input.value.trim() === '') {
     paragraph.innerHTML = 'Por favor, digite o conteúdo da carta!';
   } else {
+    while (paragraph.firstChild) {
+      paragraph.removeChild(paragraph.firstChild);
+    }
     for (let i = 0; i < string.length; i += 1) {
       const span = document.createElement('span');
       span.innerHTML = string[i];
       span.className = takeClass();
       paragraph.appendChild(span);
     }
-    cartaContador.innerHTML = `esta é uma carta com ${string.length} palavras`;
+    cartaContador.innerHTML = `${string.length}`;
   }
 });
 
