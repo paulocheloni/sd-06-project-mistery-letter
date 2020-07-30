@@ -1,6 +1,7 @@
 const letterInput = document.querySelector('#carta-texto');
 const letterButton = document.querySelector('#criar-carta');
 const responseParag = document.querySelector('#carta-gerada');
+const spans = [];
 
 let letter = '';
 let words = [];
@@ -24,6 +25,9 @@ const getRandomClasses = () => {
 
 const setClasses = (span) => {
   const classesArray = getRandomClasses();
+  if (span.classList) {
+    span.className = '';
+  }
   span.classList.add(...classesArray);
 };
 
@@ -35,6 +39,7 @@ const separateWordsInSpan = (arr) => {
     span.textContent = item;
     setClasses(span);
     responseParag.appendChild(span);
+    spans.push(span);
   });
 };
 
@@ -52,18 +57,27 @@ const eraseWordCounter = () => {
 const killParagChildren = () => {
   while (responseParag.firstChild) {
     responseParag.removeChild(responseParag.lastChild);
+    spans.pop();
   }
+};
+
+const spanEvent = (spansArr) => {
+  spansArr.forEach((item) => {
+    item.addEventListener('click', () => {
+      setClasses(item);
+    });
+  });
 };
 
 letterButton.addEventListener('click', () => {
   killParagChildren();
   eraseWordCounter();
-  if (letterInput.value) {
+  if (letterInput.value && letterInput.value !== ' ') {
     letter = letterInput.value;
-
     words = splitString(letter);
     separateWordsInSpan(words);
     wordsCounter(words);
+    spanEvent(spans);
   } else {
     responseParag.innerText = 'por favor, digite o conteúdo da carta!';
   }

@@ -19,6 +19,7 @@ body {
 }
 
 .response p {
+  align-items: center;
   display: flex;
   justify-content: space-around;
   margin-top: 60px;
