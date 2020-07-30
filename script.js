@@ -2,41 +2,47 @@
 const functionalities = {
   verifyAndEdit: function verifyAndEdit() {
     const inputTextElement = document.querySelector('#carta-texto');
-    const textToManipulate = inputTextElement.value;
+    const text = inputTextElement.value;
     let occurrenceOfWhiteSpaceInARow = 0;
-    while (textToManipulate[occurrenceOfWhiteSpaceInARow] === ' ') {
+    while (text[occurrenceOfWhiteSpaceInARow] === ' ') {
       occurrenceOfWhiteSpaceInARow += 1;
     }
-    if (occurrenceOfWhiteSpaceInARow !== textToManipulate.length && textToManipulate.value !== '') {
-      functionalities.editLetterStyle(textToManipulate);
+    if (occurrenceOfWhiteSpaceInARow !== text.length && text.value !== '') {
+      functionalities.editLetterStyle(text);
     } else {
       document.querySelector('#carta-gerada').innerText = 'Por favor, digite o conteúdo da carta!';
     }
   },
-  editLetterStyle: function editStyle(textToManipulate) {
+  editLetterStyle: function editStyle(text) {
     const letterElement = document.querySelector('#carta-gerada');
     letterElement.innerHTML = '';
     let i = 0;
     let word = '';
     let wordCounter = 0;
-    while (i < textToManipulate.length) {
-      word += textToManipulate[i].replace(' ', '');
-      if (textToManipulate[i] === ' ' || i === textToManipulate.length - 1) {
-        const spanElement = document.createElement('span');
+    while (i < text.length) {
+      word += text[i];
+      if (text[i] === ' ' && word === ' ') {
+        letterElement.innerHTML += '&nbsp;';
+        word = '';
+      } else if ((text[i] === ' ' || i === text.length - 1) && word !== '' && word !== ' ') {
+        let spanElement = document.createElement('span');
         spanElement.className = functionalities.generateRandomStyle();
+        spanElement.id = 'oii' + wordCounter;
+        word[word.length - 1] = '';
+        letterElement.innerHTML += '&nbsp;';
         spanElement.innerHTML = word;
-        if (i !== textToManipulate.length - 1) {
-          letterElement.innerHTML = letterElement.innerHTML.concat(' ');
-        }
+        letterElement.appendChild(spanElement);
         word = '';
         wordCounter += 1;
-        spanElement.addEventListener('click', functionalities.changeClass);
-        letterElement.appendChild(spanElement);
-      }
+      } 
       i += 1;
     }
     const wordCounterElement = document.querySelector('#carta-contador');
     wordCounterElement.innerHTML = wordCounter;
+    const allSpan = document.querySelectorAll('span');
+    for (let i = 0; i < allSpan.length; i += 1) {
+      allSpan[i].addEventListener('click', functionalities.changeClass);
+    }
   },
   generateRandomStyle: function generateRandomStyle() {
     const classes = [
