@@ -40,10 +40,16 @@ body {
   outline-color: white;
 }
 
+.counter {
+  color: white;
+  font-family: sans-serif;
+  font-size: 25px;
+}
+
 .newspaper {
   background-color: antiquewhite;
   font-family: Times New Roman, Times, serif;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .magazine1 {

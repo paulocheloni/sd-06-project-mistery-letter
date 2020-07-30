@@ -47,6 +47,7 @@ function randomSkewGroup() {
 
 createLetterButton.addEventListener('click', function () {
   letterGenerated.innerHTML = '';
+  letterCounter.innerHTML = '';
   if (inputText.value === '') {
     letterGenerated.innerHTML = 'por favor, digite o conteúdo da carta!';
   } else {
@@ -63,7 +64,7 @@ createLetterButton.addEventListener('click', function () {
       spanTag.className += space + randomSkewGroup();
       letterGenerated.appendChild(spanTag);
     }
-  
+
     // console.log(letterGenerated);
   }
 });
