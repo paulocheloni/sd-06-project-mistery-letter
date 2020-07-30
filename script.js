@@ -6,7 +6,7 @@ const outputCarta = document.getElementById('carta-gerada');
 botaoCriar.addEventListener('click', function () {
   outputCarta.childNodes[1].innerText = inputCarta.value;
   if (outputCarta.childNodes[1].innerText == "" || outputCarta.childNodes[1].innerText.match(/^\s*$/)) {
-    outputCarta.childNodes[1].innerText = 'Por favor, digite o conteúdo da Carta.'
+    outputCarta.childNodes[1].innerText = 'Por favor, digite o conteúdo da carta.'
   }
 });
 
