@@ -16,20 +16,29 @@ const separateWordsInSpan = (arr) => {
   });
 };
 
-const killSpans = () => {
+const wordsCounter = (wordsArr) => {
+  const counterParag = document.createElement('p');
+  counterParag.id = 'carta-contador';
+  counterParag.className = 'carta-contador';
+  counterParag.textContent = `Palavras: ${wordsArr.length}`;
+  responseParag.appendChild(counterParag);
+};
+
+const killParagChildren = () => {
   while (responseParag.firstChild) {
     responseParag.removeChild(responseParag.lastChild);
   }
-}
+};
 
 letterButton.addEventListener('click', () => {
-  killSpans();
+  killParagChildren();
   if (letterInput.value) {
     letter = letterInput.value;
 
     words = splitString(letter);
+    separateWordsInSpan(words);
+    wordsCounter(words);
   } else {
-    words = splitString('Por favor, digite o conteúdo da carta!');
+    responseParag.innerText = 'Por favor, digite o conteúdo da carta!';
   }
-  separateWordsInSpan(words);
 });
