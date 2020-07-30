@@ -16,9 +16,20 @@ const separateWordsInSpan = (arr) => {
   });
 };
 
-letterButton.addEventListener('click', () => {
-  letter = letterInput.value;
+const killSpans = () => {
+  while (responseParag.firstChild) {
+    responseParag.removeChild(responseParag.lastChild);
+  }
+}
 
-  words = splitString(letter);
+letterButton.addEventListener('click', () => {
+  killSpans();
+  if (letterInput.value) {
+    letter = letterInput.value;
+
+    words = splitString(letter);
+  } else {
+    words = splitString('Por favor, digite o conteúdo da carta!');
+  }
   separateWordsInSpan(words);
 });
