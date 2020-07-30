@@ -55,3 +55,14 @@ p {
   align-items: center;
   /* justify-content: space-around; */
 }
+
+.container {
+  background-color: greenyellow ;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+body {
+  background-color: rgb(80, 90, 136) ;
+}
