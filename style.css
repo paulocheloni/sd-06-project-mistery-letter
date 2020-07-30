@@ -49,3 +49,8 @@
 .skewright {
   transform: skew(-10deg);
 }
+
+span {
+  display: inline-block;
+  margin: 2px;
+}

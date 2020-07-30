@@ -48,7 +48,7 @@ function cleanText() {
 function creatingCards() {
   cleanText();
   console.log(document.getElementById('carta-texto').value)
-  if (document.getElementById('carta-texto').value === '') {
+  if (document.getElementById('carta-texto').value.trim() === '') {
     document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta'
   } else {
     const arrayWords = document.getElementById('carta-texto').value;
@@ -64,6 +64,30 @@ function creatingCards() {
   }
 }
 
+function eraseCardStyle(event) {
+  for (let item = 0; item < styles.length; item += 1) {
+    event.target.classList.remove(styles[item]);
+  }
+  for (let item = 0; item < sizes.length; item += 1) {
+    event.target.classList.remove(sizes[item]);
+  }
+  for (let item = 0; item < rotates.length; item += 1) {
+    event.target.classList.remove(rotates[item]);
+  }
+  for (let item = 0; item < skews.length; item += 1) {
+    event.target.classList.remove(skews[item]);
+  }
+}
+
+function addCardStyle(event) {
+  eraseCardStyle(event);
+  const arrayNewFeatures = creatingArrayFeatures();
+  for (let item = 0; item < arrayNewFeatures.length; item += 1) {
+    event.target.classList.add(arrayNewFeatures[item]);
+  }
+}
+
 window.onload = function () {
   document.getElementById('criar-carta').addEventListener('click', creatingCards);
+  document.getElementById('carta-gerada').addEventListener('click', addCardStyle);
 }
