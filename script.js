@@ -27,7 +27,7 @@ const functionalities = {
   },
   verifyTextToGenerateSpan: function verifyTextToGenSpan(letter, word, position, numberOfLetters) {
     const letterElement = document.querySelector('#carta-gerada');
-    const wordReturn;
+    let wordReturn;
     if (letter === ' ' && word === ' ') {
       letterElement.innerHTML += '&nbsp;';
       wordReturn = '';
