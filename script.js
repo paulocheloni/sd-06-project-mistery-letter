@@ -45,13 +45,18 @@ function cleanText() {
   document.getElementById('carta-gerada').innerText = '';
 }
 
+function countCards(param1) {
+  string = `esta é uma carta com ${param1.length} palavras`;
+  document.getElementById('carta-contador').innerText = string; 
+}
+
 function creatingCards() {
   cleanText();
   console.log(document.getElementById('carta-texto').value)
   if (document.getElementById('carta-texto').value.trim() === '') {
-    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta'
+    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.'
   } else {
-    const arrayWords = document.getElementById('carta-texto').value;
+    const arrayWords = document.getElementById('carta-texto').value.trim();
     for (let item1 = 0; item1 < arrayWords.split(' ').length; item1 += 1) {
       const styling = creatingArrayFeatures();
       let card = document.createElement('span');
@@ -60,6 +65,7 @@ function creatingCards() {
       }
       card.innerText = arrayWords.split(' ')[item1];
       document.getElementById('carta-gerada').insertAdjacentElement('beforeend', card);
+      countCards(arrayWords.split(' '));
     }
   }
 }
