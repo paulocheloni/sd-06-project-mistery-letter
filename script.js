@@ -27,20 +27,21 @@ const functionalities = {
   },
   verifyTextToGenerateSpan: function verifyTextToGenSpan(letter, word, position, numberOfLetters) {
     const letterElement = document.querySelector('#carta-gerada');
+    const wordReturn;
     if (letter === ' ' && word === ' ') {
       letterElement.innerHTML += '&nbsp;';
-      word = '';
+      wordReturn = '';
     } else if ((letter === ' ' || position === numberOfLetters - 1) && word !== '') {
       const spanElement = document.createElement('span');
       spanElement.className = functionalities.generateRandomStyle();
       letterElement.innerHTML += '&nbsp;';
       spanElement.innerHTML = word.replace(' ', '');
       letterElement.appendChild(spanElement);
-      word = '';
+      wordReturn = '';
     } else {
-      word = word;
+      wordReturn = word;
     }
-    return word;
+    return wordReturn;
   },
   generateRandomStyle: function generateRandomStyle() {
     const classes = [
