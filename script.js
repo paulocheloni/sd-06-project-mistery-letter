@@ -9,6 +9,7 @@ button.addEventListener('click', function () {
     for (let i = 0; i < arrayStrings.length; i += 1) {
       const span = document.createElement('span');
       span.innerHTML = arrayStrings[i];
+      span.className = takeClass();
       letter.appendChild(span);
     }
   }
