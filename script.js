@@ -1,27 +1,38 @@
 const input = document.getElementById('carta-texto');
 const btnGenerate = document.getElementById('criar-carta');
 const paragraph = document.getElementById('carta-gerada');
-const arrayClass = ['newspaper','magazine1', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright']; 
+const cartaContador = document.getElementById('carta-contador');
+
+const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
+const sizeGroup = ['medium', 'big', 'reallybig'];
+const rotateGroup = ['rotateleft', 'rotateright'];
+const inclinationGroup = ['skewleft', 'skewright'];
+const arrayClass = [styleGroup, sizeGroup, rotateGroup, inclinationGroup];
 
 function takeClass() {
-  let classes = arrayClass;
-  let random = Math.floor(Math.random() * 10);
-  return classes[random];
+  const classes = arrayClass;
+  let stringClasses = '';
+  for (let i = 0; i < 4; i += 1) {
+    const random = Math.floor(Math.random() * classes[i].length);
+    stringClasses += ` ${classes[i][random]}`;
+  }
+  return stringClasses;
 }
 
 btnGenerate.addEventListener('click', () => {
   let string = input.value;
   string = string.split(' ');
 
-  if (input.value.trim() == "") {
-    paragraph.innerHTML ='Por favor, digite o conteúdo da carta.';
-  } else {  
+  if (input.value.trim() === '') {
+    paragraph.innerHTML = 'Por favor, digite o conteúdo da carta!';
+  } else {
     for (let i = 0; i < string.length; i += 1) {
       const span = document.createElement('span');
       span.innerHTML = string[i];
       span.className = takeClass();
       paragraph.appendChild(span);
     }
+    cartaContador.innerHTML = `esta é uma carta com ${string.length} palavras`;
   }
 });
 

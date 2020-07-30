@@ -7,22 +7,22 @@ input {
 }
 
 .newspaper {
-  background-color: rgb(250, 235, 215);
-  font-family: 'Times New Roman', Times, serif;
+  background-color: antiquewhite;
+  font-family: Times, serif;
   font-weight: 700;
 }
 
 .magazine1 {
-  background-color: rgb(0, 128, 128);
-  color: rgb(255, 255, 255);
+  background-color: teal;
+  color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .magazine2 {
-  background-image: URL('images/pink-pattern.png');
-  color: rgb(255, 0, 255);
+  background-image: url('images/pink-pattern.png');
+  color: fuchsia;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
 }
@@ -43,17 +43,17 @@ input {
 }
 
 .rotateleft {
-  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+  transform: rotate(-5deg);
 }
 
 .rotateright {
-  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0);
+  transform: rotate(5deg);
 }
 
 .skewleft {
-  transform: matrix(1, 0, 0.176327, 1, 0, 0);
+  transform: skewX(10deg);
 }
 
 .skewright {
-  transform: matrix(1, 0, -0.176327, 1, 0, 0);
+  transform: skewX(-10deg);
 }
