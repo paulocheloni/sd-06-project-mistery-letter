@@ -3,24 +3,45 @@ body {
   max-width: 940px;
 }
 
+.title {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.carta-texto {
+  margin-right: 12px;
+  width: 70%;
+}
+
+.response p {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
 .newspaper {
   background-color: antiquewhite;
-  font-family: 'Times New Roman';
-  font-weight: bold;
+  font-family: Times New Roman, Times, serif;
+  font-weight: 700;
 }
 
 .magazine1 {
   background-color: teal;
   color: white;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .magazine2 {
-  background-image: url(images/pink-pattern.png);
+  background-image: url('images/pink-pattern.png');
   color: fuchsia;
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
 }
 
