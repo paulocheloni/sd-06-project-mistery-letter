@@ -1,7 +1,7 @@
 var cartaTexto = document.querySelector("#carta-texto"); 
 var criarCarta = document.querySelector("#criar-carta");
 var cartaGerada = document.querySelector("#carta-gerada");
-
+var cartaContador = document.querySelector("#carta-contador");
 
 criarCarta.addEventListener("click", function(){
     if(cartaTexto.value == "" || cartaTexto.value == " "){
@@ -25,6 +25,9 @@ criarCarta.addEventListener("click", function(){
        elements[i].classList.add(tamanho[Math.floor(Math.random() * 3)])
        elements[i].classList.add(rotacao[Math.floor(Math.random() * 2)])
        elements[i].classList.add(inclinacao[Math.floor(Math.random() * 2)])
+    
+    
+    cartaContador.innerText = arrayText.length;
     }
 
     
