@@ -1,4 +1,4 @@
-const botaoGerarCarta = document.querySelector('#gerar-carta');
+const botaoGerarCarta = document.querySelector('#criar-carta');
 const quadroDeCartas = document.querySelector('#carta-gerada');
 const cartaTexto = document.querySelector('#carta-texto');
 const grupoEstilo = {
@@ -60,12 +60,13 @@ function selecionaInclinacao() {
 
 function criarCarta() {
   const valorSalvo = cartaTexto.value;
-  let textoRestante = cartaTexto.value += ' ';
+  cartaTexto.value += ' ';
+  let textoRestante = cartaTexto.value;
+  let palavra = '';
 
   if (textoRestante.length < 1 || textoRestante.trim() === '') {
     quadroDeCartas.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
-    let palavra = '';
     quadroDeCartas.innerText = '';
     for (let x = 0; x < textoRestante.length; x += 1) {
       if (textoRestante[x] !== ' ') {
@@ -86,3 +87,10 @@ function criarCarta() {
 }
 
 botaoGerarCarta.addEventListener('click', criarCarta);
+
+quadroDeCartas.addEventListener('click', function () {
+  const elementoSelecionado = event.target;
+  if (elementoSelecionado.classList.contains('carta')) {
+    elementoSelecionado.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
+  }
+});
