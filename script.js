@@ -60,6 +60,14 @@ function selecionaInclinacao() {
   return grupoInclinacao[zeroOuUm()];
 }
 
+function criarNovaCarta() {
+  const novaCarta = document.createElement('span');
+  novaCarta.innerText = palavra;
+  novaCarta.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
+  quadroDeCartas.appendChild(novaCarta);
+  contadorDePalavras += 1;
+}
+
 function criarCarta() {
   const valorSalvo = cartaTexto.value;
   cartaTexto.value += ' ';
@@ -71,17 +79,12 @@ function criarCarta() {
   } else {
     quadroDeCartas.innerText = '';
     for (let x = 0; x < textoRestante.length; x += 1) {
-      if (textoRestante[x] === ' ' && textoRestante[x + 1] === ' '){
+      if (textoRestante[x] === ' ' && textoRestante[x + 1] === ' ') {
         x += 1;
       } else if (textoRestante[x] !== ' ') {
         palavra += textoRestante[x];
       } else {
-        const novaCarta = document.createElement('span');
-        novaCarta.innerText = palavra;
-        novaCarta.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
-        quadroDeCartas.appendChild(novaCarta);
-        contadorDePalavras += 1;
-
+        criarNovaCarta();
         textoRestante = textoRestante.substr(palavra.length + 1);
         palavra = '';
         x = -1;
