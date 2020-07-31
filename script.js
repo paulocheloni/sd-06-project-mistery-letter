@@ -17,17 +17,16 @@ criarCarta.addEventListener("click", function(){
     var elements = document.querySelectorAll("span")
     for(let i = 0; i < elements.length; i++){
        // Math.floor(Math.random() * 6)
-       var list = ["newspaper magazine1 magazine2",
-       "medium big reallybig",
-       "rotateleft rotateright",
-       "skewleft skewright"
-    ]
-       elements[i].className = list[Math.floor(Math.random() * 3)]
+       var estilo = ["newspaper", "magazine1", "magazine2"]
+       var tamanho = ["medium", "big", "reallybig"];
+       var rotacao = ["rotateleft", "rotateright"];
+       var inclinacao = ["skewleft", "skewright"];
+       elements[i].classList.add(estilo[Math.floor(Math.random() * 3)])
+       elements[i].classList.add(tamanho[Math.floor(Math.random() * 3)])
+       elements[i].classList.add(rotacao[Math.floor(Math.random() * 2)])
+       elements[i].classList.add(inclinacao[Math.floor(Math.random() * 2)])
     }
 
-    var classe1 = "newspaper magazine1 magazine2"
-    var classe2 = "medium big reallybig"
-    var classe3 = "rotateleft rotateright"
-    var classe4 = "skewleft skewright"
+    
 })
 
