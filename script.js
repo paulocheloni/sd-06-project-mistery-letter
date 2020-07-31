@@ -12,7 +12,8 @@ criarCarta.addEventListener("click", function(){
     if(cartaTexto.value.trim() === ""){
         cartaGerada.innerText = "Por favor, digite o conteúdo da carta.";
     }
-    var arrayText = cartaTexto.value.split(" ");
+    else{
+        var arrayText = cartaTexto.value.split(" ");
     for(let i = 0; i < arrayText.length; i++){
         var span = document.createElement("span")
         span.innerText = arrayText[i]
@@ -31,6 +32,8 @@ criarCarta.addEventListener("click", function(){
     
     cartaContador.innerText = arrayText.length;
     }
+    }
+    
 
 })
 
