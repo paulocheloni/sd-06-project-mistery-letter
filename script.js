@@ -8,7 +8,6 @@ criarCarta.addEventListener("click", function(){
         alert("Por favor, digite o conteúdo da carta.")
     }
     var arrayText = cartaTexto.value.split(" ");
-    console.log( arrayText)
     for(let i = 0; i < arrayText.length; i++){
         var span = document.createElement("span")
         span.innerText = arrayText[i]
@@ -16,9 +15,19 @@ criarCarta.addEventListener("click", function(){
     }
 
     var elements = document.querySelectorAll("span")
-    elements[Math.floor(Math.random() * 6)].className = "newspaper magazine1 magazine2"
-    elements[Math.floor(Math.random() * 6)].className = "medium big reallybig"
-    elements[Math.floor(Math.random() * 6)].className = "rotateleft rotateright"
-    elements[Math.floor(Math.random() * 6)].className = "skewleft skewright"
+    for(let i = 0; i < elements.length; i++){
+       // Math.floor(Math.random() * 6)
+       var list = ["newspaper magazine1 magazine2",
+       "medium big reallybig",
+       "rotateleft rotateright",
+       "skewleft skewright"
+    ]
+       elements[i].className = list[Math.floor(Math.random() * 3)]
+    }
+
+    var classe1 = "newspaper magazine1 magazine2"
+    var classe2 = "medium big reallybig"
+    var classe3 = "rotateleft rotateright"
+    var classe4 = "skewleft skewright"
 })
 
