@@ -19,6 +19,8 @@ const grupoInclinacao = {
   0: 'skewleft',
   1: 'skewright',
 };
+const visorDePalavras = document.querySelector('#carta-contador');
+let contadorDePalavras = 0;
 
 function zeroOuUm() {
   const selecionaQual = Math.floor(Math.random() * 2);
@@ -76,6 +78,7 @@ function criarCarta() {
         novaCarta.innerText = palavra;
         novaCarta.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
         quadroDeCartas.appendChild(novaCarta);
+        contadorDePalavras += 1;
 
         textoRestante = textoRestante.substr(palavra.length + 1);
         palavra = '';
@@ -84,6 +87,7 @@ function criarCarta() {
     }
   }
   cartaTexto.value = valorSalvo;
+  visorDePalavras.innerText = contadorDePalavras;
 }
 
 botaoGerarCarta.addEventListener('click', criarCarta);
@@ -94,3 +98,4 @@ quadroDeCartas.addEventListener('click', function () {
     elementoSelecionado.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
   }
 });
+
