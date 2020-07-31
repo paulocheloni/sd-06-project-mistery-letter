@@ -71,7 +71,9 @@ function criarCarta() {
   } else {
     quadroDeCartas.innerText = '';
     for (let x = 0; x < textoRestante.length; x += 1) {
-      if (textoRestante[x] !== ' ') {
+      if (textoRestante[x] === ' ' && textoRestante[x + 1] === ' '){
+        x += 1;
+      } else if (textoRestante[x] !== ' ') {
         palavra += textoRestante[x];
       } else {
         const novaCarta = document.createElement('span');
@@ -88,6 +90,7 @@ function criarCarta() {
   }
   cartaTexto.value = valorSalvo;
   visorDePalavras.innerText = contadorDePalavras;
+  contadorDePalavras = 0;
 }
 
 botaoGerarCarta.addEventListener('click', criarCarta);
@@ -98,4 +101,3 @@ quadroDeCartas.addEventListener('click', function () {
     elementoSelecionado.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
   }
 });
-
