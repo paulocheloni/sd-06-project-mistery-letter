@@ -9,8 +9,8 @@ var tamanho = ["medium", "big", "reallybig"];
 var rotacao = ["rotateleft", "rotateright"];
 var inclinacao = ["skewleft", "skewright"];
 criarCarta.addEventListener("click", function(){
-    if(cartaTexto.value == "" || cartaTexto.value == " "){
-        alert("Por favor, digite o conteúdo da carta.")
+    if(cartaTexto.value.trim() === ""){
+        cartaGerada.innerText = "Por favor, digite o conteúdo da carta.";
     }
     var arrayText = cartaTexto.value.split(" ");
     for(let i = 0; i < arrayText.length; i++){
