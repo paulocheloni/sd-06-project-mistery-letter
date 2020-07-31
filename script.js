@@ -11,7 +11,7 @@ var inclinacao = ["skewleft", "skewright"];
 criarCarta.addEventListener("click", function(){
     cartaGerada.innerText = ""
     if(cartaTexto.value.trim() === ""){
-        cartaGerada.innerText = "Por favor, digite o conteúdo da carta.";
+        cartaGerada.innerText = "Por favor, digite o conteúdo da carta!";
     }
     else{
         var arrayText = cartaTexto.value.split(" ");
