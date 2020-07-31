@@ -4,16 +4,30 @@ let rotacao = ["rotateleft", "rotateright"];
 let inclinacao = ["sskewleft", "skewright"];
 //recupera o texto de input
 let textBox = document.getElementById("carta-texto")
+//testar vazio
+function nullTest(arrayString){
+    let msg = ""
+    if(arrayString[0]==""){
+        return 0;
+    }else{
+        return 1;
+    }
+}
 //esta função cria o texto paragrafo em baixo do input
 function creatSpan(){
     let arrayString = textBox.value.split(" ") // cria uma array com as palavras do input
+    //teste para saber se a array esta vazia ou nao
+    if(nullTest(arrayString)===1){
     let paragraph = document.getElementById("carta-gerada") // recupera botao
     //laço for para criar uma span, atribuir ela um index da array e dps add como filho do paragrfo
-    for (let i in arrayString){ 
-        spanText = document.createElement("span")
-        spanText.innerHTML = arrayString[i]
-        classAdd(spanText);
-        spanText = paragraph.appendChild(spanText)
+        for (let i in arrayString){ 
+            spanText = document.createElement("span")
+            spanText.innerHTML = arrayString[i]
+            classAdd(spanText);
+            spanText = paragraph.appendChild(spanText)
+        }
+    }else{
+        console.log(nullTest(arrayString));
     }
     contSpan(arrayString)
 }
@@ -58,7 +72,11 @@ function eventClickSpan(event){
 //contar palavras e preencher no paragrafo
 function contSpan(arrayString) {
     let contador = document.getElementById("carta-contador")
-   return contador.innerHTML =  "Seu texto possui : "+arrayString.length+" palavras!";
+    if(nullTest(arrayString)===1){
+        return contador.innerHTML =  "Seu texto possui : "+arrayString.length+" palavras!";
+    }else{
+        return contador.innerHTML =  "Por favor, digite o conteúdo da carta";
+    }
 }
 //recupera botao
 let buttonLetter = document.getElementById("criar-carta")
