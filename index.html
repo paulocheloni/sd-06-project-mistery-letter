@@ -4,8 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mystery Letter</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  Placeholder
+
+  <header>
+    <h1>Mystery Letter</h1>
+  </header>
+
+  <div class="app-container">
+
+    <div class="input-container">
+      <input type="text" name="mystery-text" id="carta-texto">
+      <button id="criar-carta">Gerar</button>
+    </div>
+
+    <section class="generated-letter hide">
+      <p id="carta-gerada"></p>
+    </section>
+
+    <span class="counter hide">Carta Gerada com <p id="carta-contador"></p> palavras.</span>
+  </div>
+
+  <footer>
+    <p>Designed by @fabiosc</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
