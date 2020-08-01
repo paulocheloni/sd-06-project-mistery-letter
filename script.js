@@ -52,7 +52,7 @@ function countCards(param1) {
 function creatingCards() {
   cleanText();
   if (document.getElementById('carta-texto').value.trim() === '') {
-    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta!';
+    document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
     const arrayWords = document.getElementById('carta-texto').value.trim();
     for (let item1 = 0; item1 < arrayWords.split(' ').length; item1 += 1) {
