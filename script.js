@@ -1,3 +1,21 @@
+const groupStyle = ['newspaper', 'magazine1', 'magazine2'];
+const groupSize = ['medium', 'big', 'reallybig'];
+const groupRotate = ['rotateleft', 'rotateright'];
+const groupSkew = ['skewleft', 'skewright'];
+const groupAll = [groupStyle, groupSize, groupRotate, groupSkew];
+
+function addStyle(word) {
+  let newNumber = Math.floor(Math.random() * 4);
+  for (let i = 0; i <= newNumber; i += 1) {
+    let addClass = Math.floor((Math.random() * groupAll[i].length) + 1);
+    if (i === newNumber) {
+      word.className += groupAll[i][addClass];
+    } else {
+      word.className += `${groupAll[i][addClass]} `;
+    }
+  }
+}
+
 document.getElementById('criar-carta').addEventListener('click', function () {
   document.getElementById('carta-gerada').innerText = '';
   let cont = 0;
@@ -11,6 +29,7 @@ document.getElementById('criar-carta').addEventListener('click', function () {
     for (let i = 0; i < misteryArray.length; i += 1) {
       const misteryWord = document.createElement('span');
       misteryWord.innerText = misteryArray[i];
+      addStyle(misteryWord);
       document.getElementById('carta-gerada').appendChild(misteryWord);
     }
   } else {
