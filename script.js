@@ -1,19 +1,22 @@
-const groupStyle = ['newspaper', 'magazine1', 'magazine2'];
-const groupSize = ['medium', 'big', 'reallybig'];
-const groupRotate = ['rotateleft', 'rotateright'];
-const groupSkew = ['skewleft', 'skewright'];
-const groupAll = [groupStyle, groupSize, groupRotate, groupSkew];
+const stylesGroup = ['newspaper', 'magazine1', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright'];
 
 function addStyle(word) {
-  let newNumber = Math.floor(Math.random() * 4);
-  for (let i = 0; i <= newNumber; i += 1) {
-    let addClass = Math.floor((Math.random() * groupAll[i].length) + 1);
-    if (i === newNumber) {
-      word.className += groupAll[i][addClass];
+  const stylesNumber = Math.ceil(Math.random() * 4) + 1;
+  let groupStyle = stylesGroup.slice(0, 10);
+  for (let i = 1; i <= stylesNumber; i += 1) {
+    const addStyle = Math.ceil(Math.random() * groupStyle.length);
+    word.className += `${groupStyle[addStyle]} `;
+    if (groupStyle[addStyle] === 'newspaper' || groupStyle[addStyle] === 'magazine1' || groupStyle[addStyle] === 'magazine2') {
+      groupStyle.splice(groupStyle.indexOf('newspaper'),3);
+    } else if (groupStyle[addStyle] === 'medium' || groupStyle[addStyle] === 'big' || groupStyle[addStyle] === 'reallybig') {
+      groupStyle.splice(groupStyle.indexOf('medium', 3));
+    } else if (groupStyle[addStyle] === 'rotateleft' || groupStyle[addStyle] === 'rotateright') {
+      groupStyle.splice(groupStyle.indexOf('rotateleft', 2));
     } else {
-      word.className += `${groupAll[i][addClass]} `;
+      groupStyle.splice(groupStyle.indexOf('skewlef', 2));
     }
   }
+  groupStyle = stylesGroup.slice(0, 10);
 }
 
 document.getElementById('criar-carta').addEventListener('click', function () {
