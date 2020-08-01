@@ -46,7 +46,7 @@ function cleanText() {
 }
 
 function countCards(param1) {
-  document.getElementById('carta-contador').innerText = param1.length; 
+  document.getElementById('carta-contador').innerText = param1.length;
 }
 
 function creatingCards() {
