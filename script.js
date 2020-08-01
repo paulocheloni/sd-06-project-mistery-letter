@@ -5,10 +5,10 @@ function generateClasses() {
   const skewGroup = ['skewleft', 'skewright'];
   const possibleStyles = [styleGroup, sizeGroup, rotationGroup, skewGroup];
 
-  const styleGroupIndex = Math.floor(Math.random() * 3 + 0.3);
-  const sizeGroupIndex = Math.floor(Math.random() * 3 + 0.3);
-  const rotationGroupIndex = Math.floor(Math.random() * 2 + 0.3);
-  const skewGroupIndex = Math.floor(Math.random() * 2 + 0.3);
+  const styleGroupIndex = Math.floor((Math.random() * 3) + 0.3);
+  const sizeGroupIndex = Math.floor((Math.random() * 3) + 0.3);
+  const rotationGroupIndex = Math.floor((Math.random() * 2) + 0.3);
+  const skewGroupIndex = Math.floor((Math.random() * 2) + 0.3);
   const possibleIndexes = [styleGroupIndex, sizeGroupIndex, rotationGroupIndex, skewGroupIndex];
 
   const styles = [];
@@ -21,7 +21,15 @@ function generateClasses() {
     }
   }
 
-  return styles
+  return styles;
+}
+
+function addStyles(element) {
+  const styles = generateClasses();
+
+  styles.forEach((style) => {
+    element.classList.add(style);
+  });
 }
 
 function generateLetter(text) {
@@ -41,17 +49,10 @@ function generateLetter(text) {
     spanElement.addEventListener('click', (event) => {
       event.target.className = '';
       addStyles(event.target);
-    })
+    });
 
-    letterContainer.appendChild(spanElement)
-  })
-}
-function addStyles(element) {
-  const styles = generateClasses();
-
-  styles.forEach((style) => {
-    element.classList.add(style)
-  })
+    letterContainer.appendChild(spanElement);
+  });
 }
 
 function updateCounter(text) {
@@ -64,7 +65,7 @@ function enableButton() {
   const inputElement = document.getElementById('carta-texto');
   const buttonElement = document.getElementById('criar-carta');
 
-  buttonElement.onclick =  () => {
+  buttonElement.onclick = () => {
     if (inputElement.value.trim() === '') {
       const letterContainer = document.getElementById('carta-gerada');
       letterContainer.innerHTML = 'Por favor, digite o conteúdo da carta.';
@@ -84,4 +85,4 @@ function enableButton() {
 
 window.onload = () => {
   enableButton();
-}
+};
