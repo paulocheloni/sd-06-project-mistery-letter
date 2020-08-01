@@ -59,7 +59,7 @@ function enableButton() {
 
   buttonElement.onclick =  () => {
     if (inputElement.value.trim() === '') {
-      alert('Por favor, digite o conteúdo da carta');
+      alert('Por favor, digite o conteúdo da carta.');
     } else {
       generateLetter(inputElement.value);
       updateCounter(inputElement.value);
