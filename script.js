@@ -1,20 +1,27 @@
 function generateClasses() {
-  const styleGroup = ['newspaper', 'magazine1', 'magazine2', 'no-styling'];
-  const sizeGroup = ['medium', 'big', 'reallybig', 'no-sizing'];
-  const rotationGroup = ['rotateleft', 'rotateright', 'no-rotation'];
-  const skewGroup = ['skewleft', 'skewright', 'no-skew'];
+  const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
+  const sizeGroup = ['medium', 'big', 'reallybig'];
+  const rotationGroup = ['rotateleft', 'rotateright'];
+  const skewGroup = ['skewleft', 'skewright'];
+  const possibleStyles = [styleGroup, sizeGroup, rotationGroup, skewGroup];
 
   const styleGroupIndex = Math.floor(Math.random() * 3 + 0.3);
   const sizeGroupIndex = Math.floor(Math.random() * 3 + 0.3);
   const rotationGroupIndex = Math.floor(Math.random() * 2 + 0.3);
   const skewGroupIndex = Math.floor(Math.random() * 2 + 0.3);
+  const possibleIndexes = [styleGroupIndex, sizeGroupIndex, rotationGroupIndex, skewGroupIndex];
 
-  return [
-    styleGroup[styleGroupIndex],
-    sizeGroup[sizeGroupIndex],
-    rotationGroup[rotationGroupIndex],
-    skewGroup[skewGroupIndex]
-  ]
+  const styles = [];
+
+  for (let i = 0; i < 4; i += 1) {
+    const cssArray = possibleStyles[i];
+    const randomIndex = possibleIndexes[i];
+    if (cssArray[randomIndex]) {
+      styles.push(cssArray[randomIndex]);
+    }
+  }
+
+  return styles
 }
 
 function generateLetter(text) {
@@ -59,7 +66,10 @@ function enableButton() {
 
   buttonElement.onclick =  () => {
     if (inputElement.value.trim() === '') {
-      alert('Por favor, digite o conteúdo da carta.');
+      const letterContainer = document.getElementById('carta-gerada');
+      letterContainer.innerHTML = 'Por favor, digite o conteúdo da carta.';
+      const letter = document.querySelector('.generated-letter');
+      letter.classList.remove('hide');
     } else {
       generateLetter(inputElement.value);
       updateCounter(inputElement.value);
