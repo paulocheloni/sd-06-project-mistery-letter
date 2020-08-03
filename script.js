@@ -50,14 +50,14 @@ function sorteador() {
 }
 
 function criarCarta() {
-  let stringTotal = cartaTexto.value;
-  
+  const stringTotal = cartaTexto.value;
+
   if (stringTotal.length < 1 || stringTotal.trim() === '') {
     quadroDeCartas.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
     let contadorDePalavras = 0;
     quadroDeCartas.innerText = '';
-    let palavras = stringTotal.split(' ');
+    const palavras = stringTotal.split(' ');
     for (let x = 0; x < palavras.length; x += 1) {
       const palavra = palavras[x];
       if (palavra.trim() !== '') {
