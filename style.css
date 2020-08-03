@@ -1,7 +1,3 @@
-.quadro-de-cartas {
-  background-color: antiquewhite;
-}
-
 .carta {
   margin-right: 15px;
 }
@@ -43,17 +39,25 @@
 }
 
 .rotateleft {
+  -webkit-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
   transform: rotate(-5deg);
 }
 
 .rotateright {
+  -webkit-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
   transform: rotate(5deg);
 }
 
 .skewleft {
+  -webkit-transform: skewX(10deg);
+  -o-transform: skewX(10deg);
   transform: skewX(10deg);
 }
 
 .skewright {
+  -webkit-transform: skewX(-10deg);
+  -o-transform: skewX(-10deg);
   transform: skewX(-10deg);
 }
