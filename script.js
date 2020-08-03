@@ -15,17 +15,17 @@ document.getElementById('criar-carta').addEventListener('click', function () {
   }
   if (document.getElementById('carta-texto').value !== '' && cont > 0) {
     const misteryArray = document.getElementById('carta-texto').value.split(' ');
-    let cont = 0;
+    let contWords = 0;
     for (let i = 0; i < misteryArray.length; i += 1) {
-      if (misteryArray[i] !== '') {  
+      if (misteryArray[i] !== '') {
         const misteryWord = document.createElement('span');
         misteryWord.innerText = misteryArray[i];
         addStyles(misteryWord);
         document.getElementById('carta-gerada').appendChild(misteryWord);
-        cont += 1;
+        contWords += 1;
       }
     }
-    numberOfWords.innerText = `Total de Palavras : ${cont}`;
+    numberOfWords.innerText = contWords;
   } else {
     document.getElementById('carta-gerada').innerText = 'Por favor, digite o conteúdo da carta.';
   }
