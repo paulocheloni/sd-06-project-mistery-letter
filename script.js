@@ -63,7 +63,7 @@ function criarCarta() {
       if (palavra.trim() !== '') {
         const novaCarta = document.createElement('span');
         novaCarta.innerText = palavra;
-        novaCarta.className = `${sorteador()}carta`;
+        novaCarta.className = `${sorteador()}`;
         quadroDeCartas.appendChild(novaCarta);
         contadorDePalavras += 1;
       }
@@ -76,7 +76,7 @@ botaoGerarCarta.addEventListener('click', criarCarta);
 
 quadroDeCartas.addEventListener('click', function () {
   const elementoSelecionado = event.target;
-  if (elementoSelecionado.classList.contains('carta')) {
-    elementoSelecionado.className = `${sorteador()}carta`;
+  if (elementoSelecionado.parentNode === quadroDeCartas) {
+    elementoSelecionado.className = `${sorteador()}`;
   }
 });
