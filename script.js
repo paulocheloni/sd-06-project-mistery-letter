@@ -9,31 +9,31 @@ btnCreateLetter.addEventListener('click' , createLetter);
 //Criação das Funções
 function createLetter(){
     clearAll();
-        let separetedPhrases = inputLetter.value.split(' ');
-        if (inputLetter.value.trim() === '') {
-            let spanTextError = document.createElement('p');
-            spanTextError.id = "errorID";
-            spanTextError.innerText = "Por favor, digite o conteúdo da carta.";
-            viewLetter.appendChild(spanTextError);
-            alert("Por favor, digite o conteúdo da carta.");
-        } else {
-            let countLetters = document.getElementById('carta-contador');
-            for (let j = 0 ; j < separetedPhrases.length ; j += 1){
-                let spanText = document.createElement('span');
-                spanText.innerText = separetedPhrases[j];
-                for (let i = 0 ; i < 4 ; i += 1) {
-                    spanText.classList.add(randomClassGenerator()[i]);
-                }
+    let separetedPhrases = inputLetter.value.split(' ');
+    if (inputLetter.value.trim() === '') {
+        let spanTextError = document.createElement('p');
+        spanTextError.id = "errorID";
+        spanTextError.innerText = "Por favor, digite o conteúdo da carta.";
+        viewLetter.appendChild(spanTextError);
+        alert("Por favor, digite o conteúdo da carta.");
+    } else {
+        let countLetters = document.getElementById('carta-contador');
+        for (let j = 0 ; j < separetedPhrases.length ; j += 1){
+            let spanText = document.createElement('span');
+            spanText.innerText = separetedPhrases[j];
+            for (let i = 0 ; i < 4 ; i += 1) {
+                spanText.classList.add(randomClassGenerator()[i]);
+            }
                 spanText.addEventListener('click' , function () {
                 spanText.classList.value = '';
-                for (let i = 0 ; i < 4 ; i += 1) {
-                    spanText.classList.add(randomClassGenerator()[i]);
-                }
-            });
+            for (let i = 0 ; i < 4 ; i += 1) {
+                spanText.classList.add(randomClassGenerator()[i]);
+            }
+        });
             viewLetter.appendChild(spanText);
             countLetters.innerText = separetedPhrases.length;
-            }            
-        }
+        }            
+    }
 }
 
 function clearAll(){
