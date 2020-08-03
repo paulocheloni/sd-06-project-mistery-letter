@@ -1,26 +1,11 @@
 const botaoGerarCarta = document.querySelector('#criar-carta');
 const quadroDeCartas = document.querySelector('#carta-gerada');
 const cartaTexto = document.querySelector('#carta-texto');
-const grupoEstilo = {
-  0: 'newspaper',
-  1: 'magazine1',
-  2: 'magazine2',
-};
-const grupoTamanho = {
-  0: 'medium',
-  1: 'big',
-  2: 'reallybig',
-};
-const grupoRotacao = {
-  0: 'rotateleft',
-  1: 'rotateright',
-};
-const grupoInclinacao = {
-  0: 'skewleft',
-  1: 'skewright',
-};
+const grupoEstilo = ['newspaper', 'magazine1', 'magazine2'];
+const grupoTamanho = ['medium', 'big', 'reallybig'];
+const grupoRotacao = ['rotateleft', 'rotateright'];
+const grupoInclinacao = ['skewleft', 'skewright'];
 const visorDePalavras = document.querySelector('#carta-contador');
-let contadorDePalavras = 0;
 
 function zeroOuUm() {
   const selecionaQual = Math.floor(Math.random() * 2);
@@ -32,68 +17,59 @@ function zeroADois() {
   return selecionaQual;
 }
 
-function selecionaEstilo() {
-  if (zeroADois() === 0) {
-    return '';
-  }
-  return grupoEstilo[zeroADois()];
-}
+function sorteador() {
+  let novoConjuntoDeClasses = '';
+  let verificadorDeMinimoDeClasses = 0;
 
-function selecionaTamanho() {
-  if (zeroADois() === 0) {
-    return '';
+  if (zeroOuUm() === 1) {
+    novoConjuntoDeClasses += `${grupoEstilo[zeroADois()]} `;
+    verificadorDeMinimoDeClasses += 1;
   }
-  return grupoTamanho[zeroADois()];
-}
 
-function selecionaRotacao() {
-  if (zeroADois() === 0) {
-    return '';
+  if (zeroOuUm() === 1) {
+    novoConjuntoDeClasses += `${grupoTamanho[zeroADois()]} `;
+    verificadorDeMinimoDeClasses += 1;
   }
-  return grupoRotacao[zeroOuUm()];
-}
 
-function selecionaInclinacao() {
-  if (zeroADois() === 0) {
-    return '';
+  if (zeroOuUm() === 1) {
+    novoConjuntoDeClasses += `${grupoRotacao[zeroOuUm()]} `;
+    verificadorDeMinimoDeClasses += 1;
+  } else if (verificadorDeMinimoDeClasses < 2) {
+    novoConjuntoDeClasses += `${grupoRotacao[zeroOuUm()]} `;
+    verificadorDeMinimoDeClasses += 1;
   }
-  return grupoInclinacao[zeroOuUm()];
-}
 
-function criarNovaCarta() {
-  const novaCarta = document.createElement('span');
-  novaCarta.innerText = palavra;
-  novaCarta.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
-  quadroDeCartas.appendChild(novaCarta);
-  contadorDePalavras += 1;
+  if (zeroOuUm() === 1) {
+    novoConjuntoDeClasses += `${grupoInclinacao[zeroOuUm()]} `;
+    verificadorDeMinimoDeClasses += 1;
+  } else if (verificadorDeMinimoDeClasses < 2) {
+    novoConjuntoDeClasses += `${grupoInclinacao[zeroOuUm()]} `;
+  }
+
+  return novoConjuntoDeClasses;
 }
 
 function criarCarta() {
-  const valorSalvo = cartaTexto.value;
-  cartaTexto.value += ' ';
-  let textoRestante = cartaTexto.value;
-  let palavra = '';
-
-  if (textoRestante.length < 1 || textoRestante.trim() === '') {
+  let stringTotal = cartaTexto.value;
+  
+  if (stringTotal.length < 1 || stringTotal.trim() === '') {
     quadroDeCartas.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
+    let contadorDePalavras = 0;
     quadroDeCartas.innerText = '';
-    for (let x = 0; x < textoRestante.length; x += 1) {
-      if (textoRestante[x] === ' ' && textoRestante[x + 1] === ' ') {
-        x += 1;
-      } else if (textoRestante[x] !== ' ') {
-        palavra += textoRestante[x];
-      } else {
-        criarNovaCarta();
-        textoRestante = textoRestante.substr(palavra.length + 1);
-        palavra = '';
-        x = -1;
+    let palavras = stringTotal.split(' ');
+    for (let x = 0; x < palavras.length; x += 1) {
+      const palavra = palavras[x];
+      if (palavra.trim() !== '') {
+        const novaCarta = document.createElement('span');
+        novaCarta.innerText = palavra;
+        novaCarta.className = `${sorteador()}carta`;
+        quadroDeCartas.appendChild(novaCarta);
+        contadorDePalavras += 1;
       }
     }
+    visorDePalavras.innerText = contadorDePalavras;
   }
-  cartaTexto.value = valorSalvo;
-  visorDePalavras.innerText = contadorDePalavras;
-  contadorDePalavras = 0;
 }
 
 botaoGerarCarta.addEventListener('click', criarCarta);
@@ -101,6 +77,6 @@ botaoGerarCarta.addEventListener('click', criarCarta);
 quadroDeCartas.addEventListener('click', function () {
   const elementoSelecionado = event.target;
   if (elementoSelecionado.classList.contains('carta')) {
-    elementoSelecionado.className = `${selecionaEstilo()} ${selecionaTamanho()} ${selecionaRotacao()} ${selecionaInclinacao()} carta`;
+    elementoSelecionado.className = `${sorteador()}carta`;
   }
 });
