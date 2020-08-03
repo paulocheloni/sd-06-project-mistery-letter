@@ -46,7 +46,7 @@ function sorteador() {
     novoConjuntoDeClasses += `${grupoInclinacao[zeroOuUm()]} `;
   }
 
-  return novoConjuntoDeClasses;
+  return novoConjuntoDeClasses.trim();
 }
 
 function criarCarta() {
