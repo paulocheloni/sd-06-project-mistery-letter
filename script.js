@@ -1,35 +1,55 @@
 function formatInputText (inputText) {
   phraseUnformated = inputText.split(' ');
   phraseFormated = [];
-  for (let i in phraseUnformated ) {
-    if(phraseUnformated[i] != '') {
-      phraseFormated.push(phraseUnformated[i]);
+    for (let i in phraseUnformated ) {
+      if (phraseUnformated[i] != '') {
+        phraseFormated.push(phraseUnformated[i]);
+      }
     }
-  }
-  return phraseFormated
+    if (phraseFormated[0] == null ) {
+      return alert('Por favor, digite o conteúdo da carta.')
+    }
+    return phraseFormated
 }
 
-function addRandomClass (classes) {
-  const randomElement =  Math.ceil(Math.random()*((classes.length)-1))
-  const choice = classes[randomElement];
-  return choice
+function addRandomClasses () {
+  const classes = ['rotate-right', 'rotate-left', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
+  const choices = [];
+  const numberOfClassesToAdd = Math.ceil(Math.random()*((classes.length)-1));
+  for (i = 0 ; i < numberOfClassesToAdd; i += 1) {
+    const randomIndex =  Math.ceil(Math.random()*((classes.length)-1));
+    choices.push(classes[randomIndex]);
+    classes.splice(randomIndex,1);
+  }
+  return choices.join(' ',' ')
 }
 
 function createElementsByWords (words) {
+
   words.forEach((element) => {
     const newElement = document.createElement('span');
     const textContainer = document.getElementById('carta-gerada');
-    newElement.classList = `word-generated  ${addRandomClass(['var', 'lar'])}`;
+    let choices = addRandomClasses()
+    newElement.classList = choices;
     newElement.innerText = element;
     textContainer.appendChild(newElement);
   });
 }
 
-const btnGenerateLetter = document.getElementById('criar-carta');
-
-btnGenerateLetter.addEventListener('click', (e) => {
-  const typedText = document.getElementById('carta-texto').value;
-  const formatedInput = formatInputText(typedText);
+function initButtonEvents () {
+  const btnGenerateLetter = document.getElementById('criar-carta');
+  btnGenerateLetter.addEventListener('click', (e) => {
+  let typedText = document.getElementById('carta-texto');
+  const formatedInput = formatInputText(typedText.value);
   createElementsByWords(formatedInput);
-});
+  typedText.value = "";
+  });
+}
+
+window.onload = () => {
+  initButtonEvents();
+}
+
+
+
 
