@@ -12,7 +12,8 @@ function createWords() {
   const inputText = document.querySelector('#carta-texto');
   const arrayWords = inputText.value.trim().split(' ');
   if (inputText.value.trim() === '') {
-    alert('Por favor, digite o conteúdo da carta.');
+    addWord.innerHTML = 'Por favor, digite o conteúdo da carta.';
+    return;
   }
   removeAllWords();
   for (let index = 0; index < arrayWords.length; index += 1) {
