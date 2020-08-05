@@ -30,7 +30,7 @@ function formatInputText (inputText) {
     }
   }
   if (phraseFormated[0] == null ) {
-    return alert("Por favor, digite o conteúdo da carta.")
+    return "Por favor, digite o conteúdo da carta."
   }
   return phraseFormated
 }
