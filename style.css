@@ -9,3 +9,9 @@ body {
 .container {
   text-align: center;
 }
+
+.newspaper {
+  background-color: antiquewhite;
+  font-family: 'Times New Roman';
+  font-weight: 700;
+}
