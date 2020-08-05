@@ -16,7 +16,7 @@ p {
 .magazine1 {
   background-color: teal;
   color: white;
-  font-family: verdana ;
+  font-family: Verdana ;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -24,7 +24,7 @@ p {
 .magazine2 {
   background-image: url('images/pink-pattern.png');
   color: fuchsia;
-  font-family: verdana;
+  font-family: Verdana;
   font-weight: 900;
 }
 
