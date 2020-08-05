@@ -10,9 +10,17 @@ function addRandomClasses () {
   return chosenClasses.join(' ',' ')
 }
 
+function showNumberOfWords () {
+  const elementCount = document.querySelector('#carta-contador')
+  elementCount.innerText = (1 + Number(elementCount.innerText));
+
+
+}
+
 function createElementsByWords (words) {
   for (let i in words) {
     const newElement = document.createElement('span');
+    showNumberOfWords();
     const parentElement = document.getElementById('carta-gerada');
     let chosenClasses = addRandomClasses()
     newElement.classList = chosenClasses;
