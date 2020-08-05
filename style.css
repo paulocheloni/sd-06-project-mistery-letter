@@ -14,3 +14,10 @@ h1 {
 #criar-carta {
 	background-color: tomato;
 }
+#container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(206, 240, 240);
+	justify-content: space-around;
+}
