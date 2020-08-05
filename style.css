@@ -1,5 +1,9 @@
+main {
+  margin-top: 200px;
+}
+
 p {
-  display: inline-block;
+
   padding: 20px;
 }
 
@@ -52,10 +56,8 @@ p {
 }
 
 .skewright {
-  transform: skewX(-10);
+  transform: skewX(-10deg);
 }
 
-main {
-  margin-top: 200px;
-}
+
 

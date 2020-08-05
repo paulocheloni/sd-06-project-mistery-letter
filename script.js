@@ -11,14 +11,14 @@ function addRandomClasses () {
 }
 
 function createElementsByWords (words) {
-  words.forEach((word) => {
-    const newElement = document.createElement('p');
+  for (let i in words) {
+    const newElement = document.createElement('span');
     const parentElement = document.getElementById('carta-gerada');
     let chosenClasses = addRandomClasses()
     newElement.classList = chosenClasses;
-    newElement.innerText = word;
+    newElement.innerText = words[i];
     parentElement.appendChild(newElement);
-  });
+  }
 }
 
 function formatInputText (inputText) {
