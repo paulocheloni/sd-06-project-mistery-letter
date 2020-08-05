@@ -10,22 +10,20 @@ function addRandomClasses () {
   return chosenClasses.join(' ',' ')
 }
 
-function showNumberOfWords () {
+function showNumberOfWords (i) {
   const elementCount = document.querySelector('#carta-contador')
-  elementCount.innerText = (1 + Number(elementCount.innerText));
-
-
+  elementCount.innerText = (i);
 }
 
 function createElementsByWords (words) {
   for (let i in words) {
     const newElement = document.createElement('span');
-    showNumberOfWords();
     const parentElement = document.getElementById('carta-gerada');
     let chosenClasses = addRandomClasses()
     newElement.classList = chosenClasses;
     newElement.innerText = words[i];
     parentElement.appendChild(newElement);
+    showNumberOfWords(words.length);
   }
 }
 
