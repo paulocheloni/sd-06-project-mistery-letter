@@ -1,4 +1,18 @@
-// Apaga todas as palavras da carta gerada
+// Gera classes aleatórias
+function randomClass() {
+  const arrayStyle = ['newspaper', 'magazine1', 'magazine2'];
+  const arraySize = ['medium', 'big', 'reallybig'];
+  const arrayRotation = ['rotateleft', 'rotateright'];
+  const arraySkew = ['skewleft', 'skewright'];
+  const space = ' ';
+  let classes = arrayStyle[Math.floor(Math.random() * 3)];
+  classes += space + arraySize[Math.floor(Math.random() * 3)];
+  classes += space + arrayRotation[Math.floor(Math.random() * 2)];
+  //classes += space + arraySkew[Math.floor(Math.random() * 2)];
+  return classes;
+}
+
+// Limpa todas as palavras da carta gerada
 function removeAllWords() {
   const allWords = document.querySelector('#carta-gerada');
   while (allWords.firstChild) {
@@ -19,6 +33,7 @@ function createWords() {
   for (let index = 0; index < arrayWords.length; index += 1) {
     const span = document.createElement('span');
     span.innerText = arrayWords[index];
+    span.className = randomClass();
     addWord.appendChild(span);
   }
 }
