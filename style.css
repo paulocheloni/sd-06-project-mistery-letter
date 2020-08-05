@@ -1,0 +1,16 @@
+#carta-texto {
+	width: 584px;
+  background-color: white;
+  margin-top: 10%;
+}
+#carta-gerada {
+  width: 584px;
+  height: 440px;
+  border: 1px solid black;
+}
+h1 {
+	text-align: center;
+}
+#criar-carta {
+	background-color: tomato;
+}
