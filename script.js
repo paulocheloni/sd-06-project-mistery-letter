@@ -10,7 +10,10 @@ function removeAllWords() {
 function createWords() {
   const addWord = document.querySelector('#carta-gerada');
   const inputText = document.querySelector('#carta-texto');
-  const arrayWords = inputText.value.split(' ');
+  const arrayWords = inputText.value.trim().split(' ');
+  if (inputText.value.trim() === '') {
+    alert('Por favor, digite o conteúdo da carta.');
+  }
   removeAllWords();
   for (let index = 0; index < arrayWords.length; index += 1) {
     const span = document.createElement('span');
@@ -21,4 +24,3 @@ function createWords() {
 
 const createLetter = document.querySelector('#criar-carta');
 createLetter.addEventListener('click', createWords);
-
