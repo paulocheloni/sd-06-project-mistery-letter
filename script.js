@@ -2,6 +2,13 @@ const generateLetter = document.getElementById('carta-gerada');
 const btnGenerateLetter = document.getElementById('criar-carta');
 const inputLetter = document.getElementById('carta-texto');
 
+function verifyMessage() {
+  if (inputLetter.value === '' || inputLetter.value.trim() === '') {
+    generateLetter.innerHTML = 'Por favor, digite o conteúdo da carta.';
+  }
+  return true;
+}
+
 function createLetter() {
   if (verifyMessage() === true) {
     let inputWords = inputLetter.value;
@@ -12,13 +19,6 @@ function createLetter() {
       createWords.innerHTML = inputWords[index];
     }
   }
-}
-
-function verifyMessage() {
-  if (inputLetter.value === '' || inputLetter.value.trim() === '') {
-    generateLetter.innerHTML = 'Por favor, digite o conteúdo da carta.';
-  }
-  return true;
 }
 
 window.onload = function () {
