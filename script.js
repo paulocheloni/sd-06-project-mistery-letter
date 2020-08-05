@@ -1,17 +1,3 @@
-function formatInputText (inputText) {
-  phraseUnformated = inputText.split(' ');
-  phraseFormated = [];
-  for (let i in phraseUnformated ) {
-    if (phraseUnformated[i] != '') {
-      phraseFormated.push(phraseUnformated[i]);
-    }
-  }
-  if (phraseFormated[0] == null ) {
-    return alert('Por favor, digite o conteúdo da carta.')
-  }
-  return phraseFormated
-}
-
 function addRandomClasses () {
   const classes = ['rotate-right', 'rotate-left', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
   const chosenClasses = [];
@@ -26,13 +12,27 @@ function addRandomClasses () {
 
 function createElementsByWords (words) {
   words.forEach((word) => {
-    const newElement = document.createElement('span');
+    const newElement = document.createElement('p');
     const parentElement = document.getElementById('carta-gerada');
     let chosenClasses = addRandomClasses()
     newElement.classList = chosenClasses;
     newElement.innerText = word;
     parentElement.appendChild(newElement);
   });
+}
+
+function formatInputText (inputText) {
+  phraseUnformated = inputText.split(' ');
+  phraseFormated = [];
+  for (let i in phraseUnformated ) {
+    if (phraseUnformated[i] != '') {
+      phraseFormated.push(phraseUnformated[i]);
+    }
+  }
+  if (phraseFormated[0] == null ) {
+    return alert('Por favor, digite o conteúdo da carta.')
+  }
+  return phraseFormated
 }
 
 function initButtonEvents () {
@@ -48,7 +48,3 @@ function initButtonEvents () {
 window.onload = () => {
   initButtonEvents();
 }
-
-
-
-
