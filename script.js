@@ -41,7 +41,16 @@ function initButtonEvents () {
   let input = document.getElementById('carta-texto');
   const typedText = formatInputText(input.value);
   createElementsByWords(typedText);
+  initSpanEvents();
   });
+}
+
+function initSpanEvents () {
+  const spanLetter = document.querySelectorAll('span');
+  for (let i = 0; i < spanLetter.length; i += 1)
+  spanLetter[i].addEventListener('click', (e) => {
+    spanLetter[i].classList = addRandomClasses();
+  })
 }
 
 window.onload = () => {
