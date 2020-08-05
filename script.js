@@ -46,10 +46,10 @@ function initButtonEvents () {
 }
 
 function initSpanEvents () {
-  const spanLetter = document.querySelectorAll('span');
-  for (let i = 0; i < spanLetter.length; i += 1)
-  spanLetter[i].addEventListener('click', (e) => {
-    spanLetter[i].classList = addRandomClasses();
+  const spansLetter = document.querySelectorAll('span');
+  for (let i = 0; i < spansLetter.length; i += 1)
+  spansLetter[i].addEventListener('click', (e) => {
+    spansLetter[i].classList = addRandomClasses();
   })
 }
 
