@@ -30,7 +30,7 @@ function formatInputText (inputText) {
     }
   }
   if (phraseFormated[0] == null ) {
-    return alert('Por favor, digite o conteúdo da carta.')
+    return alert("Por favor, digite o conteúdo da carta.")
   }
   return phraseFormated
 }
@@ -41,7 +41,6 @@ function initButtonEvents () {
   let input = document.getElementById('carta-texto');
   const typedText = formatInputText(input.value);
   createElementsByWords(typedText);
-  input.value = "";
   });
 }
 
