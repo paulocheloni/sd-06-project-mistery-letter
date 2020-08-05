@@ -10,10 +10,7 @@ function addRandomClasses () {
   return chosenClasses.join(' ',' ')
 }
 
-function superSetRandomClasses() {
-  const classes = ['rotateright', 'rotateleft', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
 
-}
 
 function showNumberOfWords (i) {
   const elementCount = document.querySelector('#carta-contador')
@@ -21,6 +18,7 @@ function showNumberOfWords (i) {
 }
 
 function createElementsByWords (words) {
+
   for (let i in words) {
     const newElement = document.createElement('span');
     const parentElement = document.getElementById('carta-gerada');
@@ -46,11 +44,23 @@ function formatInputText (inputText) {
   return phraseFormated
 }
 
+function removeOldWords () {
+  const wordsContainer = document.querySelector('#carta-gerada');
+  oldWords = wordsContainer.childNodes.length
+  while (oldWords) {
+    wordsContainer.removeChild(wordsContainer.lastChild)
+    oldWords = wordsContainer.childNodes.length
+  }
+}
+
+
 function initButtonEvents () {
+
   const btnGenerateLetter = document.getElementById('criar-carta');
   btnGenerateLetter.addEventListener('click', (e) => {
   let input = document.getElementById('carta-texto');
   const typedText = formatInputText(input.value);
+  removeOldWords();
   createElementsByWords(typedText);
   initSpanEvents();
   });
