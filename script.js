@@ -1,5 +1,5 @@
 function addRandomClasses () {
-  const classes = ['rotate-right', 'rotate-left', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
+  const classes = ['rotateright', 'rotateleft', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
   const chosenClasses = [];
   const numberOfClassesToAdd = Math.ceil(Math.random()*((classes.length)-1));
   for (i = 0 ; i < numberOfClassesToAdd; i += 1) {
@@ -8,6 +8,11 @@ function addRandomClasses () {
     classes.splice(randomIndex,1);
   }
   return chosenClasses.join(' ',' ')
+}
+
+function superSetRandomClasses() {
+  const classes = ['rotateright', 'rotateleft', 'medium', 'magazine1' , 'magazine2', 'skewleft', 'skewright', 'big', 'reallybig', 'newspaper']
+
 }
 
 function showNumberOfWords (i) {
