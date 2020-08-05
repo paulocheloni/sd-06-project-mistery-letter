@@ -1,5 +1,6 @@
 p {
   display: inline-block;
+  padding: 20px;
 }
 
 .newspaper {
@@ -57,6 +58,4 @@ p {
 main {
   margin-top: 200px;
 }
-span {
-  padding: 20px;
-}
+
