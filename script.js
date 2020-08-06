@@ -2,7 +2,6 @@ const generateLetter = document.getElementById('carta-gerada');
 const btnGenerateLetter = document.getElementById('criar-carta');
 const inputLetter = document.getElementById('carta-texto');
 const countLetter = document.getElementById('carta-contador');
-let counter = 0;
 
 const classesGroup = ['newspaper', 'magazine', 'magazine2', 'medium', 'big', 'reallybig', 'rotateleft', 'rotateright', 'skewleft', 'skewright'];
 
@@ -18,8 +17,19 @@ function randomClasses() {
   return classesGroup[random];
 }
 
+function removeAllWords() {
+  while (generateLetter.firstChild) {
+    generateLetter.removeChild(generateLetter.lastChild);
+  }
+  while (countLetter.firstChild) {
+    countLetter.removeChild(countLetter.lastChild);
+  }
+}
+
 function createLetter() {
   if (verifyMessage() === true) {
+    removeAllWords();
+    let counter = 0;
     let inputWords = inputLetter.value;
     inputWords = inputWords.split(' ');
     for (let index = 0; index < inputWords.length; index += 1) {
