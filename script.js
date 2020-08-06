@@ -7,13 +7,14 @@ function randomClasses() {
   const styleGroup = ['newspaper', 'magazine', 'magazine2'];
   const sizeGroup = ['medium', 'big', 'reallybig'];
   const rotateGroup = ['rotateleft', 'rotateright'];
-  const space = ' ';
+  const skewGroup = ['skewleft', 'skewright'];
   let classes = '';
   for (let index = 0; index < 3; index += 1) {
     const randomStyle = styleGroup[Math.floor(Math.random() * 3)];
     const randomSize = sizeGroup[Math.floor(Math.random() * 3)];
     const randomRotate = rotateGroup[Math.floor(Math.random() * 2)];
-    classes = randomStyle + space + randomSize + space + randomRotate;
+    const randomSkew = skewGroup[Math.floor(Math.random() * 2)];
+    classes = `${randomStyle} ${randomSize} ${randomRotate} ${randomSkew}`;
   }
   return classes;
 }
