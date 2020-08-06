@@ -4,7 +4,7 @@ const inputLetter = document.getElementById('carta-texto');
 const countLetter = document.getElementById('carta-contador');
 
 function randomClasses() {
-  const styleGroup = ['newspaper', 'magazine', 'magazine2'];
+  const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
   const sizeGroup = ['medium', 'big', 'reallybig'];
   const rotateGroup = ['rotateleft', 'rotateright'];
   const skewGroup = ['skewleft', 'skewright'];
