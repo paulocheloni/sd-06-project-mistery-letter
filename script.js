@@ -2,13 +2,11 @@
 function randomClass() {
   const arrayStyle = ['newspaper', 'magazine1', 'magazine2'];
   const arraySize = ['medium', 'big', 'reallybig'];
-  const arrayRotation = ['rotateleft', 'rotateright'];
-  const arraySkew = ['skewleft', 'skewright'];
+  const arrayTransform = ['rotateleft', 'rotateright', 'skewleft', 'skewright'];
   const space = ' ';
   let classes = arrayStyle[Math.floor(Math.random() * 3)];
   classes += space + arraySize[Math.floor(Math.random() * 3)];
-  classes += space + arrayRotation[Math.floor(Math.random() * 2)];
-  //classes += space + arraySkew[Math.floor(Math.random() * 2)];
+  classes += space + arrayTransform[Math.floor(Math.random() * 4)];
   return classes;
 }
 
@@ -24,6 +22,7 @@ function removeAllWords() {
 function createWords() {
   const addWord = document.querySelector('#carta-gerada');
   const inputText = document.querySelector('#carta-texto');
+  const wordCount = document.querySelector('#carta-contador');
   const arrayWords = inputText.value.trim().split(' ');
   if (inputText.value.trim() === '') {
     addWord.innerHTML = 'Por favor, digite o conteúdo da carta.';
@@ -36,6 +35,7 @@ function createWords() {
     span.className = randomClass();
     addWord.appendChild(span);
   }
+  wordCount.innerHTML = arrayWords.length;
 }
 
 const createLetter = document.querySelector('#criar-carta');

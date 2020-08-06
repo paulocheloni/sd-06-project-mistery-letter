@@ -42,6 +42,8 @@ body {
 
 .rotateleft {
   transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
 }
 
 .rotateright {
