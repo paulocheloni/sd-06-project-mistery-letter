@@ -3,10 +3,12 @@ const buttonGerarCarta = document.querySelector('#criar-carta');
 console.log(boxPhrase.value)
 
 function gerarCarta() {
-  let phrase = boxPhrase.value.split(" ");
-  console.log(phrase)
-
-
+  if (boxPhrase.value === '') {
+    document.getElementById('carta-gerada').innerHTML = 'Por favor, digite o conteúdo da carta.';
+  } else {
+    console.log(boxPhrase.value)
+  }
+}
 
 
 buttonGerarCarta.addEventListener('click', gerarCarta);
