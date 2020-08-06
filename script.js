@@ -3,26 +3,21 @@ const btnGenerateLetter = document.getElementById('criar-carta');
 const inputLetter = document.getElementById('carta-texto');
 const countLetter = document.getElementById('carta-contador');
 
-function verifyMessage() {
-  if (inputLetter.value.trim() === '') {
-    generateLetter.innerHTML = 'Por favor, digite o conteúdo da carta.';
-  }
-  return true;
-}
-
 function randomClasses() {
   const styleGroup = ['newspaper', 'magazine', 'magazine2'];
   const sizeGroup = ['medium', 'big', 'reallybig'];
   const rotateGroup = ['rotateleft', 'rotateright'];
   const skewGroup = ['skewleft', 'skewright'];
   const space = ' ';
+  let classes = '';
   for (let index = 0; index < 3; index += 1) {
-    let randomStyle = styleGroup[Math.floor(Math.random() * 3)];
-    let randomSize = sizeGroup[Math.floor(Math.random() * 3)];
-    let randomRotate = rotateGroup[Math.floor(Math.random() * 2)];
-    let randomSkew = skewGroup[Math.floor(Math.random() * 2)];
-    return randomStyle + space + randomSize + space + randomRotate + space + randomSkew;
+    const randomStyle = styleGroup[Math.floor(Math.random() * 3)];
+    const randomSize = sizeGroup[Math.floor(Math.random() * 3)];
+    const randomRotate = rotateGroup[Math.floor(Math.random() * 2)];
+    const randomSkew = skewGroup[Math.floor(Math.random() * 2)];
+    classes = randomStyle + space + randomSize + space + randomRotate + space + randomSkew;
   }
+  return classes;
 }
 
 function removeAllWords() {
@@ -55,4 +50,8 @@ function createLetter() {
 
 window.onload = function () {
   btnGenerateLetter.addEventListener('click', createLetter);
+  generateLetter.addEventListener('click', function (event) {
+    const words = event.target;
+    words.className = randomClasses();
+  });
 };
