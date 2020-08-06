@@ -9,13 +9,11 @@ function randomClasses() {
   const rotateGroup = ['rotateleft', 'rotateright'];
   const skewGroup = ['skewleft', 'skewright'];
   let classes = '';
-  for (let index = 0; index < 3; index += 1) {
-    const randomStyle = styleGroup[Math.floor(Math.random() * 3)];
-    const randomSize = sizeGroup[Math.floor(Math.random() * 3)];
-    const randomRotate = rotateGroup[Math.floor(Math.random() * 2)];
-    const randomSkew = skewGroup[Math.floor(Math.random() * 2)];
-    classes = `${randomStyle} ${randomSize} ${randomRotate} ${randomSkew}`;
-  }
+  const randomStyle = styleGroup[Math.floor(Math.random() * 3)];
+  const randomSize = sizeGroup[Math.floor(Math.random() * 3)];
+  const randomRotate = rotateGroup[Math.floor(Math.random() * 2)];
+  const randomSkew = skewGroup[Math.floor(Math.random() * 2)];
+  classes = `${randomStyle} ${randomSize} ${randomRotate} ${randomSkew}`;
   return classes;
 }
 
