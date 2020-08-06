@@ -1,12 +1,12 @@
-const boxPhrase = document.querySelector('#carta-texto');
+const boxPhrase = document.getElementById('carta-texto');
 const buttonGerarCarta = document.querySelector('#criar-carta');
+console.log(boxPhrase.value)
 
 function gerarCarta() {
-  if (boxPhrase.value === '') {
-    document.getElementById('carta-gerada').innerHTML = 'Por favor, digite o conteúdo da carta.';
-  } else {
-    console.log(boxPhrase.value)
-  }
-}
+  let phrase = boxPhrase.value.split(" ");
+  console.log(phrase)
+
+
+
 
 buttonGerarCarta.addEventListener('click', gerarCarta);
