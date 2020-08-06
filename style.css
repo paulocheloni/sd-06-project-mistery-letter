@@ -61,3 +61,11 @@ body {
 .skewright {
   transform: skewX(-10deg);
 }
+
+.carta-texto {
+  width: 70%;
+}
+
+.carta-gerada {
+  margin: 50px;
+}
