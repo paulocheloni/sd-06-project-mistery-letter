@@ -8,11 +8,19 @@ const splitSentence = () => {
   return palavra;
 };
 
+const clearFields = () => {
+  divText.innerHTML = '';
+  while (divText.firstChild) {
+    divText.firstChild.remove();
+  }
+};
+
 function populateSpan() {
   splitSentence();
   if (palavra[0] === '') {
-    alert('Por favor, digite o conteúdo da carta.');
+    divText.innerHTML = 'Por favor, digite o conteúdo da carta.';
   } else {
+    clearFields();
     for (let index = 0; index < palavra.length; index += 1) {
       const span = document.createElement('span');
       span.innerHTML = `${palavra[index]}`;
