@@ -1,3 +1,48 @@
+.main-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 440px;
+  justify-content: flex-start;
+}
+
+h1 {
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  text-shadow: 5px 5px 8px black;
+}
+
+.letter {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  background-color: rgb(111 , 199 , 111);
+  border: 1px solid darkgreen;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+body {
+  background-image: url('images/fundo.jpg');
+  background-size: cover;
+  color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
 .newspaper {
   background-color: antiquewhite;
   font-family: Times New Roman;
