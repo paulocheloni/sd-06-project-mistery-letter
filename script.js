@@ -1,28 +1,23 @@
 const text = document.querySelector('#carta-texto');
 const divText = document.querySelector('#carta-gerada');
-const arr = [];
+let palavra = [];
 
-function splitSentence() {
+const splitSentence = () => {
   const valor = text.value;
-  let palavra = '';
-  for (let index = 0; index < valor.length; index += 1) {
-    if (valor[index] !== ' ') {
-      palavra += valor[index];
-    } else {
-      arr.push(palavra);
-      palavra = '';
-    }
-  }
-  arr.push(palavra);
-  return arr;
-}
+  palavra = valor.split(' ');
+  return palavra;
+};
 
 function populateSpan() {
   splitSentence();
-  for (let index = 0; index < arr.length; index += 1) {
-    const span = document.createElement('span');
-    span.innerHTML = `${arr[index]}`;
-    divText.appendChild(span);
+  if (palavra[0] === '') {
+    alert('Por favor, digite o conteúdo da carta.');
+  } else {
+    for (let index = 0; index < palavra.length; index += 1) {
+      const span = document.createElement('span');
+      span.innerHTML = `${palavra[index]}`;
+      divText.appendChild(span);
+    }
   }
 }
 
